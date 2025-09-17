@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-17 Wed 10:39 -->
+<!-- 2025-09-17 Wed 15:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>waybar Configuration</title>
@@ -204,48 +204,48 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org104f84b">waybar</a>
+<li><a href="#org975642c">waybar</a>
 <ul>
-<li><a href="#orgeaa3e84"><code>~/.config/waybar/config</code></a>
+<li><a href="#org161bbff"><code>~/.config/waybar/config</code></a>
 <ul>
-<li><a href="#org54b0fbd">General</a></li>
-<li><a href="#orgd29c764">Left Modules</a></li>
-<li><a href="#orgc5a5437">Center Modules</a></li>
-<li><a href="#org331d67f">Right Modules</a></li>
-<li><a href="#org404beea">Modules Configuration</a></li>
+<li><a href="#org845880e">General</a></li>
+<li><a href="#org1b75980">Left Modules</a></li>
+<li><a href="#org4d761cc">Center Modules</a></li>
+<li><a href="#org0c2d380">Right Modules</a></li>
+<li><a href="#org1ce8ba2">Modules Configuration</a></li>
 </ul>
 </li>
-<li><a href="#org5d52a06"><code>~/.config/waybar/style.css</code></a>
+<li><a href="#org64cd498"><code>~/.config/waybar/style.css</code></a>
 <ul>
-<li><a href="#org89072da">definitions</a></li>
-<li><a href="#orgd3a68d2">global</a></li>
-<li><a href="#org0763699">waybar</a></li>
-<li><a href="#org5bc69e5">window</a></li>
-<li><a href="#org7ce3353">workspaces</a></li>
-<li><a href="#org23dadde">mode</a></li>
-<li><a href="#orgf8adc61">pulseaudio</a></li>
-<li><a href="#org6a0b5b3">clock</a></li>
-<li><a href="#orgc35d19e">temperature</a></li>
-<li><a href="#org9e7f044">language</a></li>
-<li><a href="#orga2b9dc8">tray</a></li>
-</ul>
-</li>
+<li><a href="#orgeb5f3a7">definitions</a></li>
+<li><a href="#org54b7235">global</a></li>
+<li><a href="#org72cb7cf">waybar</a></li>
+<li><a href="#org613ce78">window</a></li>
+<li><a href="#orgc95ba8a">workspaces</a></li>
+<li><a href="#org0285af3">mode</a></li>
+<li><a href="#org9aa3fdd">pulseaudio</a></li>
+<li><a href="#orgb590ed2">clock</a></li>
+<li><a href="#org233fe7d">temperature</a></li>
+<li><a href="#org63276f8">language</a></li>
+<li><a href="#orge852e02">tray</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org104f84b" class="outline-2">
-<h2 id="org104f84b">waybar</h2>
-<div class="outline-text-2" id="text-org104f84b">
+<div id="outline-container-org975642c" class="outline-2">
+<h2 id="org975642c">waybar</h2>
+<div class="outline-text-2" id="text-org975642c">
 </div>
-<div id="outline-container-orgeaa3e84" class="outline-3">
-<h3 id="orgeaa3e84"><code>~/.config/waybar/config</code></h3>
-<div class="outline-text-3" id="text-orgeaa3e84">
+<div id="outline-container-org161bbff" class="outline-3">
+<h3 id="org161bbff"><code>~/.config/waybar/config</code></h3>
+<div class="outline-text-3" id="text-org161bbff">
 </div>
-<div id="outline-container-org54b0fbd" class="outline-4">
-<h4 id="org54b0fbd">General</h4>
-<div class="outline-text-4" id="text-org54b0fbd">
+<div id="outline-container-org845880e" class="outline-4">
+<h4 id="org845880e">General</h4>
+<div class="outline-text-4" id="text-org845880e">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"layer"</span>: <span style="color: #bc8f8f;">"top"</span>, <span style="color: #b22222;">// </span><span style="color: #b22222;">Waybar at top layer
 </span><span style="color: #bc8f8f;">"position"</span>: <span style="color: #bc8f8f;">"top"</span>, <span style="color: #b22222;">// </span><span style="color: #b22222;">Waybar position (top|bottom|left|right)
@@ -258,40 +258,40 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgd29c764" class="outline-4">
-<h4 id="orgd29c764">Left Modules</h4>
-<div class="outline-text-4" id="text-orgd29c764">
+<div id="outline-container-org1b75980" class="outline-4">
+<h4 id="org1b75980">Left Modules</h4>
+<div class="outline-text-4" id="text-org1b75980">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"modules-left"</span>: [<span style="color: #bc8f8f;">"hyprland/workspaces"</span>, <span style="color: #bc8f8f;">"pulseaudio"</span>, <span style="color: #bc8f8f;">"network"</span>],
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc5a5437" class="outline-4">
-<h4 id="orgc5a5437">Center Modules</h4>
-<div class="outline-text-4" id="text-orgc5a5437">
+<div id="outline-container-org4d761cc" class="outline-4">
+<h4 id="org4d761cc">Center Modules</h4>
+<div class="outline-text-4" id="text-org4d761cc">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"modules-center"</span>: [<span style="color: #bc8f8f;">"hyprland/window"</span>],
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org331d67f" class="outline-4">
-<h4 id="org331d67f">Right Modules</h4>
-<div class="outline-text-4" id="text-org331d67f">
+<div id="outline-container-org0c2d380" class="outline-4">
+<h4 id="org0c2d380">Right Modules</h4>
+<div class="outline-text-4" id="text-org0c2d380">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"modules-right"</span>: [<span style="color: #bc8f8f;">"hyprland/submap"</span>, <span style="color: #bc8f8f;">"cpu"</span>, <span style="color: #bc8f8f;">"memory"</span>, <span style="color: #bc8f8f;">"temperature"</span>, <span style="color: #bc8f8f;">"battery"</span>, <span style="color: #bc8f8f;">"tray"</span>, <span style="color: #bc8f8f;">"clock"</span>],
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org404beea" class="outline-4">
-<h4 id="org404beea">Modules Configuration</h4>
-<div class="outline-text-4" id="text-org404beea">
+<div id="outline-container-org1ce8ba2" class="outline-4">
+<h4 id="org1ce8ba2">Modules Configuration</h4>
+<div class="outline-text-4" id="text-org1ce8ba2">
 </div>
 <ul class="org-ul">
-<li><a id="orgc7a4a99"></a>mpris<br />
-<div class="outline-text-5" id="text-orgc7a4a99">
+<li><a id="orga932928"></a>mpris<br />
+<div class="outline-text-5" id="text-orga932928">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"mpris"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{player_icon} {title}"</span>,
@@ -308,8 +308,8 @@
 </div>
 </div>
 </li>
-<li><a id="org0f560af"></a>backlight<br />
-<div class="outline-text-5" id="text-org0f560af">
+<li><a id="org3f55d6f"></a>backlight<br />
+<div class="outline-text-5" id="text-org3f55d6f">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"backlight"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61829; {percent}%"</span>,
@@ -321,8 +321,8 @@
 </div>
 </div>
 </li>
-<li><a id="org99782f4"></a>hyprland/workspaces<br />
-<div class="outline-text-5" id="text-org99782f4">
+<li><a id="org9663aa3"></a>hyprland/workspaces<br />
+<div class="outline-text-5" id="text-org9663aa3">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/workspaces"</span>: {
     <span style="color: #bc8f8f;">"disable-scroll"</span>: <span style="color: #5f9ea0;">true</span>,
@@ -345,8 +345,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgaa09e4e"></a>hyprland/languages<br />
-<div class="outline-text-5" id="text-orgaa09e4e">
+<li><a id="org1181b77"></a>hyprland/languages<br />
+<div class="outline-text-5" id="text-org1181b77">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/language"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{}"</span>,
@@ -357,8 +357,8 @@
 </div>
 </div>
 </li>
-<li><a id="org35d9e2d"></a>hyprland/window<br />
-<div class="outline-text-5" id="text-org35d9e2d">
+<li><a id="orgaf6ced4"></a>hyprland/window<br />
+<div class="outline-text-5" id="text-orgaf6ced4">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/window"</span>: {
       <span style="color: #bc8f8f;">"max-length"</span>: 50,
@@ -368,8 +368,8 @@
 </div>
 </div>
 </li>
-<li><a id="org7482838"></a>hyprland/submap<br />
-<div class="outline-text-5" id="text-org7482838">
+<li><a id="org2b25d8a"></a>hyprland/submap<br />
+<div class="outline-text-5" id="text-org2b25d8a">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/submap"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{}"</span>,
@@ -380,8 +380,8 @@
 </div>
 </div>
 </li>
-<li><a id="org485d5f9"></a>keyboard-state<br />
-<div class="outline-text-5" id="text-org485d5f9">
+<li><a id="org48923d0"></a>keyboard-state<br />
+<div class="outline-text-5" id="text-org48923d0">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"keyboard-state"</span>: {
   <span style="color: #bc8f8f;">"numlock"</span>: <span style="color: #5f9ea0;">false</span>,
@@ -396,8 +396,8 @@
 </div>
 </div>
 </li>
-<li><a id="orge73eab8"></a>mpd<br />
-<div class="outline-text-5" id="text-orge73eab8">
+<li><a id="orgeed61dd"></a>mpd<br />
+<div class="outline-text-5" id="text-orgeed61dd">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"mpd"</span>: {
     <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) &#11816;{songPosition}|{queueLength}&#11817; {volume}% &#61441;"</span>,
@@ -429,8 +429,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgaa9ed07"></a>idle_inhibitor<br />
-<div class="outline-text-5" id="text-orgaa9ed07">
+<li><a id="orgeb3d3a9"></a>idle_inhibitor<br />
+<div class="outline-text-5" id="text-orgeb3d3a9">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"idle_inhibitor"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{icon}"</span>,
@@ -443,8 +443,8 @@
 </div>
 </div>
 </li>
-<li><a id="org02c6aeb"></a>tray<br />
-<div class="outline-text-5" id="text-org02c6aeb">
+<li><a id="orgf0cc6f0"></a>tray<br />
+<div class="outline-text-5" id="text-orgf0cc6f0">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"tray"</span>: {
   <span style="color: #bc8f8f;">"spacing"</span>: 0
@@ -453,8 +453,8 @@
 </div>
 </div>
 </li>
-<li><a id="org3135146"></a>clock<br />
-<div class="outline-text-5" id="text-org3135146">
+<li><a id="org56edf60"></a>clock<br />
+<div class="outline-text-5" id="text-org56edf60">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"clock#date"</span>: {
   <span style="color: #b22222;">// </span><span style="color: #b22222;">"timezone": "America/New_York",
@@ -472,8 +472,8 @@
 </div>
 </div>
 </li>
-<li><a id="org2418c34"></a>cpu<br />
-<div class="outline-text-5" id="text-org2418c34">
+<li><a id="org8a65ea0"></a>cpu<br />
+<div class="outline-text-5" id="text-org8a65ea0">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"cpu"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{usage}% &#62171;"</span>,
@@ -485,8 +485,8 @@
 </div>
 </div>
 </li>
-<li><a id="org7e02847"></a>memory<br />
-<div class="outline-text-5" id="text-org7e02847">
+<li><a id="org0e31b53"></a>memory<br />
+<div class="outline-text-5" id="text-org0e31b53">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"memory"</span>: {
   <span style="color: #bc8f8f;">"interval"</span>: 30,
@@ -497,8 +497,8 @@
 </div>
 </div>
 </li>
-<li><a id="org5909127"></a>temperature<br />
-<div class="outline-text-5" id="text-org5909127">
+<li><a id="org53e1848"></a>temperature<br />
+<div class="outline-text-5" id="text-org53e1848">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"temperature"</span>: {
   <span style="color: #b22222;">// </span><span style="color: #b22222;">"thermal-zone": 2,
@@ -512,8 +512,8 @@
 </div>
 </div>
 </li>
-<li><a id="org6b3aa21"></a>battery<br />
-<div class="outline-text-5" id="text-org6b3aa21">
+<li><a id="org9551a1c"></a>battery<br />
+<div class="outline-text-5" id="text-org9551a1c">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"battery"</span>: {
   <span style="color: #bc8f8f;">"states"</span>: {
@@ -536,8 +536,8 @@
 </div>
 </div>
 </li>
-<li><a id="org5d6311d"></a>network<br />
-<div class="outline-text-5" id="text-org5d6311d">
+<li><a id="org97816af"></a>network<br />
+<div class="outline-text-5" id="text-org97816af">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"network"</span>: {
   <span style="color: #b22222;">// </span><span style="color: #b22222;">"interface": "wlp2*", // (Optional) To force the use of this interface
@@ -553,8 +553,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgcea09bd"></a>wireplumber<br />
-<div class="outline-text-5" id="text-orgcea09bd">
+<li><a id="org5cf6179"></a>wireplumber<br />
+<div class="outline-text-5" id="text-org5cf6179">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"wireplumber"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{icon} {volume}%"</span>,
@@ -568,8 +568,8 @@
 </div>
 </div>
 </li>
-<li><a id="org93aff1d"></a>pulseaudio<br />
-<div class="outline-text-5" id="text-org93aff1d">
+<li><a id="orgc6f2f6f"></a>pulseaudio<br />
+<div class="outline-text-5" id="text-orgc6f2f6f">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"pulseaudio"</span>: {
   <span style="color: #b22222;">// </span><span style="color: #b22222;">"scroll-step": 1, // %, can be a float
@@ -594,8 +594,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgc0454db"></a>custom/pacman<br />
-<div class="outline-text-5" id="text-orgc0454db">
+<li><a id="org989d5bf"></a>custom/pacman<br />
+<div class="outline-text-5" id="text-org989d5bf">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"custom/pacman"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61538; {} update available"</span>,
@@ -608,8 +608,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgbd44f97"></a>custom/launcher<br />
-<div class="outline-text-5" id="text-orgbd44f97">
+<li><a id="org11baf0f"></a>custom/launcher<br />
+<div class="outline-text-5" id="text-org11baf0f">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"custom/launcher"</span>:{
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#62211; "</span>,
@@ -621,8 +621,8 @@
 </div>
 </div>
 </li>
-<li><a id="org3c0f35e"></a>custom/power<br />
-<div class="outline-text-5" id="text-org3c0f35e">
+<li><a id="org02cb1a9"></a>custom/power<br />
+<div class="outline-text-5" id="text-org02cb1a9">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"custom/power"</span>:{
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61752; "</span>,
@@ -633,8 +633,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgde5fb59"></a>custom/media<br />
-<div class="outline-text-5" id="text-orgde5fb59">
+<li><a id="orgd6b6dc7"></a>custom/media<br />
+<div class="outline-text-5" id="text-orgd6b6dc7">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"custom/media"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{icon} {}"</span>,
@@ -655,13 +655,13 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org5d52a06" class="outline-3">
-<h3 id="org5d52a06"><code>~/.config/waybar/style.css</code></h3>
-<div class="outline-text-3" id="text-org5d52a06">
+<div id="outline-container-org64cd498" class="outline-3">
+<h3 id="org64cd498"><code>~/.config/waybar/style.css</code></h3>
+<div class="outline-text-3" id="text-org64cd498">
 </div>
-<div id="outline-container-org89072da" class="outline-4">
-<h4 id="org89072da">definitions</h4>
-<div class="outline-text-4" id="text-org89072da">
+<div id="outline-container-orgeb5f3a7" class="outline-4">
+<h4 id="orgeb5f3a7">definitions</h4>
+<div class="outline-text-4" id="text-orgeb5f3a7">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #00008b;">@define-color</span> color00 <span style="color: #ffffff; background-color: #2e3440;">#2e3440</span>;
 <span style="color: #00008b;">@define-color</span> color01 <span style="color: #ffffff; background-color: #3b4252;">#3b4252</span>;
@@ -683,9 +683,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgd3a68d2" class="outline-4">
-<h4 id="orgd3a68d2">global</h4>
-<div class="outline-text-4" id="text-orgd3a68d2">
+<div id="outline-container-org54b7235" class="outline-4">
+<h4 id="org54b7235">global</h4>
+<div class="outline-text-4" id="text-org54b7235">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">*</span> {
       <span style="color: #4169e1;">transition</span>: none;
@@ -695,9 +695,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org0763699" class="outline-4">
-<h4 id="org0763699">waybar</h4>
-<div class="outline-text-4" id="text-org0763699">
+<div id="outline-container-org72cb7cf" class="outline-4">
+<h4 id="org72cb7cf">waybar</h4>
+<div class="outline-text-4" id="text-org72cb7cf">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#waybar</span> {
       <span style="color: #4169e1;">font-family</span>: <span style="color: #bc8f8f;">'JetBrainsMonoNL Nerd Font Mono'</span>, sans-serif;
@@ -710,9 +710,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org5bc69e5" class="outline-4">
-<h4 id="org5bc69e5">window</h4>
-<div class="outline-text-4" id="text-org5bc69e5">
+<div id="outline-container-org613ce78" class="outline-4">
+<h4 id="org613ce78">window</h4>
+<div class="outline-text-4" id="text-org613ce78">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#window</span> {
       <span style="color: #4169e1;">font-size</span>: 0.9em;
@@ -723,9 +723,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org7ce3353" class="outline-4">
-<h4 id="org7ce3353">workspaces</h4>
-<div class="outline-text-4" id="text-org7ce3353">
+<div id="outline-container-orgc95ba8a" class="outline-4">
+<h4 id="orgc95ba8a">workspaces</h4>
+<div class="outline-text-4" id="text-orgc95ba8a">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#workspaces</span> {
       <span style="color: #4169e1;">margin</span>: 0 4px;
@@ -753,9 +753,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org23dadde" class="outline-4">
-<h4 id="org23dadde">mode</h4>
-<div class="outline-text-4" id="text-org23dadde">
+<div id="outline-container-org0285af3" class="outline-4">
+<h4 id="org0285af3">mode</h4>
+<div class="outline-text-4" id="text-org0285af3">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature, #language</span>{
       <span style="color: #4169e1;">margin</span>: 4px 2px;
@@ -768,9 +768,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgf8adc61" class="outline-4">
-<h4 id="orgf8adc61">pulseaudio</h4>
-<div class="outline-text-4" id="text-orgf8adc61">
+<div id="outline-container-org9aa3fdd" class="outline-4">
+<h4 id="org9aa3fdd">pulseaudio</h4>
+<div class="outline-text-4" id="text-org9aa3fdd">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#pulseaudio.muted</span> {
       <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@base0F</span>;
@@ -783,9 +783,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org6a0b5b3" class="outline-4">
-<h4 id="org6a0b5b3">clock</h4>
-<div class="outline-text-4" id="text-org6a0b5b3">
+<div id="outline-container-orgb590ed2" class="outline-4">
+<h4 id="orgb590ed2">clock</h4>
+<div class="outline-text-4" id="text-orgb590ed2">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#clock</span> {
       <span style="color: #4169e1;">margin-left</span>: 0px;
@@ -796,9 +796,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgc35d19e" class="outline-4">
-<h4 id="orgc35d19e">temperature</h4>
-<div class="outline-text-4" id="text-orgc35d19e">
+<div id="outline-container-org233fe7d" class="outline-4">
+<h4 id="org233fe7d">temperature</h4>
+<div class="outline-text-4" id="text-org233fe7d">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#temperature.critical</span> {
       <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@color13</span>;
@@ -807,9 +807,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org9e7f044" class="outline-4">
-<h4 id="org9e7f044">language</h4>
-<div class="outline-text-4" id="text-org9e7f044">
+<div id="outline-container-org63276f8" class="outline-4">
+<h4 id="org63276f8">language</h4>
+<div class="outline-text-4" id="text-org63276f8">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#language</span> {
       <span style="color: #4169e1;">font-size</span>: 0.9em;
@@ -820,9 +820,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orga2b9dc8" class="outline-4">
-<h4 id="orga2b9dc8">tray</h4>
-<div class="outline-text-4" id="text-orga2b9dc8">
+<div id="outline-container-orge852e02" class="outline-4">
+<h4 id="orge852e02">tray</h4>
+<div class="outline-text-4" id="text-orge852e02">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#tray</span> {
       <span style="color: #4169e1;">margin</span>: 4px 4px 4px 4px;
@@ -848,7 +848,7 @@
 <div id="postamble" class="status">
 <p class="date">Date: 2025-09-17 Wed 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-09-17 Wed 10:39</p>
+<p class="date">Created: 2025-09-17 Wed 15:25</p>
 </div>
 </body>
 </html>
