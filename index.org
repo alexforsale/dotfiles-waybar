@@ -26,53 +26,25 @@
 #+end_src
 *** General
 #+begin_src js
-  "layer": "top", // Waybar at top layer
-  "output": ["eDP-1", "DP-1", "DP-2", "DP-3", "DP-4", "DP-5", "HDMI-A-1"],
-  "position": "top", // Waybar position (top|bottom|left|right)
-  //"height": 34, // Waybar height (to be removed for auto height)
-  // "width": 1280, // Waybar width
-  "spacing": 4, // Gaps between modules (4px)
-  //"start_hidden": "true",
-  // Choose the order of the modules
+      "layer": "top", // Waybar at top layer
+      "position": "top", // Waybar position (top|bottom|left|right)
+      "height": 34, // Waybar height (to be removed for auto height)
+      "spacing": 4, // Gaps between modules (4px)
+      "modules-left": ["hyprland/workspaces", "pulseaudio", "network"],
+      "modules-center": ["hyprland/window"],
+      "modules-right": ["hyprland/submap", "cpu", "memory", "temperature", "battery", "tray", "clock"],
 #+end_src
 *** Left Modules
 #+begin_src js
-  "modules-left": [
-    "custom/launcher",
-    "hyprland/workspaces",
-    "hyprland/submap"
-    // "mpris"
-    // "custom/media"
-  ],
+      "modules-left": ["hyprland/workspaces", "pulseaudio", "network"],
 #+end_src
 *** Center Modules
 #+begin_src js
-  "modules-center": [
-    "hyprland/window"
-  ],
+      "modules-center": ["hyprland/window"],
 #+end_src
 *** Right Modules
 #+begin_src js
-  "modules-right": [
-    // "mpd",
-    // "idle_inhibitor",
-    "backlight",
-    "pulseaudio",
-    // "wireplumber",
-    "network",
-    "cpu",
-    "memory",
-    "temperature",
-    "keyboard-state",
-    // "hyprland/language",
-    "battery",
-    "custom/pacman",
-    "clock#date",
-    "clock#time",
-    "wireplumber",
-    "tray",
-    "custom/power"
-  ],
+      "modules-right": ["hyprland/submap", "cpu", "memory", "temperature", "battery", "tray", "clock"],
 #+end_src
 *** Modules Configuration 
 **** mpris
@@ -101,21 +73,21 @@
 **** hyprland/workspaces
 #+begin_src js
   "hyprland/workspaces": {
-    //"num-tags": 6,
-    "format": "{id}",
-    // "format-icons": {
-    //   "1": "",
-    //   "2": "",
-    //   "3": "󰖟",
-    //   "4": "󰺻",
-    //   "5": "󰈔",
-    //   "6": "󰦑",
-    //   "7": "",
-    //   "8": "󰑔",
-    //   "9": "",
-    //   "10": ""
-    // },
-    "active-only": false
+      "disable-scroll": true,
+      "on-click": "activate",
+      "format": "{name}",
+      "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
+      "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
+      "format-icons": {
+          "1": "",
+          "2": "",
+          "3": "",
+          "4": "",
+          "5": "",
+          "urgent": "",
+          "focused": "",
+          "default": ""
+      }
   },
 #+end_src
 **** hyprland/languages
@@ -129,13 +101,8 @@
 **** hyprland/window
 #+begin_src js
   "hyprland/window": {
-    "format": "{title}",
-    "rewrite": {
-      "(.*) — Mozilla Firefox": "🌎 $1",
-      "(.*) - (GNU Emacs at.*)": "$1"
-    },
-    "max-length": 80,
-    "separate-outputs": true
+  	"max-length": 50,
+  	"separate-outputs": true
   },
 #+end_src
 **** hyprland/submap
@@ -161,31 +128,30 @@
 **** mpd
 #+begin_src js
   "mpd": {
-    // "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format": "  {title} - {artist} {stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}[{songPosition}/{queueLength}] [{volume}%]",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 2,
-    "consume-icons": {
-      "on": " "
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " "
-    },
-    "repeat-icons": {
-      "on": " "
-    },
-    "single-icons": {
-      "on": "1 "
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
+      "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+      "format-disconnected": "Disconnected ",
+      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+      "unknown-tag": "N/A",
+      "interval": 2,
+      "consume-icons": {
+          "on": " "
+      },
+      "random-icons": {
+          "off": "<span color=\"#f53c3c\"></span> ",
+          "on": " "
+      },
+      "repeat-icons": {
+          "on": " "
+      },
+      "single-icons": {
+          "on": "1 "
+      },
+      "state-icons": {
+          "paused": "",
+          "playing": ""
+      },
+      "tooltip-format": "MPD (connected)",
+      "tooltip-format-disconnected": "MPD (disconnected)"
   },
 #+end_src
 **** idle_inhibitor
@@ -201,8 +167,7 @@
 **** tray
 #+begin_src js
   "tray": {
-    // "icon-size": 21,
-    "spacing": 10
+    "spacing": 0
   },
 #+end_src
 **** clock
@@ -366,53 +331,110 @@
 :END:
 *** definitions
 #+begin_src css
-  /* Nord */
-  @define-color background rgba(46, 52, 64, 1);
-  @define-color background2 rgba(46, 52, 64, 0.75);
-  @define-color cyan rgba(136, 192, 208, 1);
-  @define-color cyan2 rgba(136, 192, 208, 0.6);
-  @define-color red rgba(191, 97, 106, 1);
-  @define-color red2 rgba(191, 97, 106, 0.6);
-  @define-color foreground rgba(216, 222, 233, 1);
-  @define-color black #161320;
-  @define-color green rgba(163, 190, 140, 1);
-  @define-color green2 rgba(163, 190, 140, 0.3);
-  @define-color yellow rgba(235, 203, 139, 1);
-  @define-color yellow2 rgba(235, 203, 139, 0.45);
-  @define-color blue rgba(129, 161, 193, 1);
-  @define-color blue2 rgba(129, 161, 193, 0.45);
-  @define-color magenta rgba(180, 142, 173, 1);
-  @define-color magenta2 rgba(180, 142, 173, 0.5);
-  @define-color white rgba(229, 233, 240, 1);
+  @define-color color00 #2e3440;
+  @define-color color01 #3b4252;
+  @define-color color02 #434c5e;
+  @define-color color03 #4c566a;
+  @define-color color04 #d8dee9;
+  @define-color color05 #e5e9f0;
+  @define-color color06 #eceff4;
+  @define-color color07 #8fbcbb;
+  @define-color color08 #88c0d0;
+  @define-color color09 #81a1c1;
+  @define-color color10 #5e81ac;
+  @define-color color11 #bf616a;
+  @define-color color12 #d08770;
+  @define-color color13 #ebcb8b;
+  @define-color color14 #a3be8c;
+  @define-color color15 #ba8baf;
 
-  @define-color light #D8DEE9;
-  /*@define-color dark @nord_dark_font;*/
-  @define-color warning #ebcb8b;
-  @define-color critical #BF616A;
-  @define-color mode #434C5E;
-  /*@define-color workspaces @bg;*/
-  /*@define-color workspaces @nord_dark_font;*/
-  /*@define-color workspacesfocused #434C5E;*/
-  @define-color workspacebutton @white;
-  @define-color launcher rgba(94, 129, 172, 1);
-  @define-color tray @workspacesfocused;
-  @define-color sound #EBCB8B;
-  @define-color network #5D7096;
-  @define-color memory #546484;
-  @define-color cpu rgba(89, 106, 141, 1);
-  @define-color keyboard rgba(163, 190, 140, 1);
-  @define-color battery rgba(180, 142, 173, 1);
-  @define-color temp #4D5C78;
-  @define-color layout rgba(94, 129, 172, 1);
-  @define-color wireplumber #88c0d0;
-  @define-color date rgba(136, 192, 208, 1);
-  @define-color time rgba(180, 142, 173, 1);
-  @define-color backlight rgba(67, 76, 94, 1);
-  @define-color nord_bg rgba(67, 76, 94, 1);
-  @define-color nord_bg_blue #546484;
-  @define-color nord_light #D8DEE9;
-  @define-color nord_light_font #D8DEE9;
-  @define-color nord_dark_font #434C5E;
+  ,* {
+  	transition: none;
+  	box-shadow: none;
+  }
+
+  #waybar {
+  	font-family: 'JetBrainsMonoNL Nerd Font Mono', sans-serif;
+  	font-size: 1.2em;
+  	font-weight: 400;
+  	color: @color06;
+  	background: @color01;
+  }
+
+  #workspaces {
+  	margin: 0 4px;
+  }
+
+  #workspaces button {
+  	margin: 4px 0;
+  	padding: 0 4px;
+  	color: @color03;
+  }
+
+  #workspaces button.visible {
+  }
+
+  #workspaces button.active {
+  	border-radius: 4px;
+  	background-color: @color02;
+  }
+
+  #workspaces button.urgent {
+  	color: rgba(238, 46, 36, 1);
+  }
+
+  #tray {
+  	margin: 4px 4px 4px 4px;
+  	border-radius: 4px;
+  	background-color: @color02;
+  }
+
+  #tray * {
+  	padding: 0 6px;
+  	border-left: 1px solid @color00;
+  }
+
+  #tray *:first-child {
+  	border-left: none;
+  }
+
+  #mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature, #language{
+  	margin: 4px 2px;
+  	padding: 0 6px;
+  	background-color: @color02;
+  	border-radius: 4px;
+  	min-width: 20px;
+  }
+
+  #pulseaudio.muted {
+  	color: @base0F;
+  }
+
+  #pulseaudio.bluetooth {
+  	color: @color13;
+  }
+
+  #clock {
+  	margin-left: 0px;
+  	margin-right: 4px;
+  	background-color: transparent;
+  }
+
+  #temperature.critical {
+  	color: @color13;
+  }
+
+  #window {
+  	font-size: 0.9em;
+  	font-weight: 400;
+  	font-family: sans-serif;
+  }
+
+  #language {
+  	font-size: 0.9em;
+  	font-weight: 500;
+  	letter-spacing: -1px;
+  }
 #+end_src
 *** global
 #+begin_src css
