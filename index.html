@@ -1,0 +1,1375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-09-17 Wed 09:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>waybar Configuration</title>
+<meta name="author" content="Kristian Alexander P" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<style> #content{max-width:1800px;}</style>
+<style> p{max-width:800px;}</style>
+<style> li{max-width:800px;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">waybar Configuration</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf90f910">waybar</a>
+<ul>
+<li><a href="#org9f884d2"><code>~/.config/waybar/config</code></a>
+<ul>
+<li><a href="#org08c20ef">General</a></li>
+<li><a href="#org8d77aab">Left Modules</a></li>
+<li><a href="#orgd4e50d5">Center Modules</a></li>
+<li><a href="#org4db3f98">Right Modules</a></li>
+<li><a href="#orgbd5061f">Modules Configuration</a></li>
+</ul>
+</li>
+<li><a href="#org404005d"><code>~/.config/waybar/style.css</code></a>
+<ul>
+<li><a href="#orge99a152">definitions</a></li>
+<li><a href="#org05581a6">global</a></li>
+<li><a href="#org1e8ba71">keyframes</a></li>
+<li><a href="#org28a8748">window</a></li>
+<li><a href="#org38eb16e">button</a></li>
+<li><a href="#orgbb912eb">tooltip</a></li>
+<li><a href="#org05c4728">modules</a></li>
+<li><a href="#org8307758">workspaces</a></li>
+<li><a href="#org98f5abe">mode</a></li>
+<li><a href="#org9e05ccd">submap</a></li>
+<li><a href="#orgaea771a">tray</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf90f910" class="outline-2">
+<h2 id="orgf90f910">waybar</h2>
+<div class="outline-text-2" id="text-orgf90f910">
+</div>
+<div id="outline-container-org9f884d2" class="outline-3">
+<h3 id="org9f884d2"><code>~/.config/waybar/config</code></h3>
+<div class="outline-text-3" id="text-org9f884d2">
+</div>
+<div id="outline-container-org08c20ef" class="outline-4">
+<h4 id="org08c20ef">General</h4>
+<div class="outline-text-4" id="text-org08c20ef">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"layer"</span>: <span style="color: #bc8f8f;">"top"</span>, <span style="color: #b22222;">// </span><span style="color: #b22222;">Waybar at top layer
+</span><span style="color: #bc8f8f;">"output"</span>: [<span style="color: #bc8f8f;">"eDP-1"</span>, <span style="color: #bc8f8f;">"DP-1"</span>, <span style="color: #bc8f8f;">"DP-2"</span>, <span style="color: #bc8f8f;">"DP-3"</span>, <span style="color: #bc8f8f;">"DP-4"</span>, <span style="color: #bc8f8f;">"DP-5"</span>, <span style="color: #bc8f8f;">"HDMI-A-1"</span>],
+<span style="color: #bc8f8f;">"position"</span>: <span style="color: #bc8f8f;">"top"</span>, <span style="color: #b22222;">// </span><span style="color: #b22222;">Waybar position (top|bottom|left|right)
+</span><span style="color: #b22222;">//</span><span style="color: #b22222;">"height": 34, // Waybar height (to be removed for auto height)
+</span><span style="color: #b22222;">// </span><span style="color: #b22222;">"width": 1280, // Waybar width
+</span><span style="color: #bc8f8f;">"spacing"</span>: 4, <span style="color: #b22222;">// </span><span style="color: #b22222;">Gaps between modules (4px)
+</span><span style="color: #b22222;">//</span><span style="color: #b22222;">"start_hidden": "true",
+</span><span style="color: #b22222;">// </span><span style="color: #b22222;">Choose the order of the modules</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8d77aab" class="outline-4">
+<h4 id="org8d77aab">Left Modules</h4>
+<div class="outline-text-4" id="text-org8d77aab">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"modules-left"</span>: [
+  <span style="color: #bc8f8f;">"custom/launcher"</span>,
+  <span style="color: #bc8f8f;">"hyprland/workspaces"</span>,
+  <span style="color: #bc8f8f;">"hyprland/submap"</span>
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"mpris"
+</span>  <span style="color: #b22222;">// </span><span style="color: #b22222;">"custom/media"
+</span>],
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd4e50d5" class="outline-4">
+<h4 id="orgd4e50d5">Center Modules</h4>
+<div class="outline-text-4" id="text-orgd4e50d5">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"modules-center"</span>: [
+  <span style="color: #bc8f8f;">"hyprland/window"</span>
+],
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4db3f98" class="outline-4">
+<h4 id="org4db3f98">Right Modules</h4>
+<div class="outline-text-4" id="text-org4db3f98">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"modules-right"</span>: [
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"mpd",
+</span>  <span style="color: #b22222;">// </span><span style="color: #b22222;">"idle_inhibitor",
+</span>  <span style="color: #bc8f8f;">"backlight"</span>,
+  <span style="color: #bc8f8f;">"pulseaudio"</span>,
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"wireplumber",
+</span>  <span style="color: #bc8f8f;">"network"</span>,
+  <span style="color: #bc8f8f;">"cpu"</span>,
+  <span style="color: #bc8f8f;">"memory"</span>,
+  <span style="color: #bc8f8f;">"temperature"</span>,
+  <span style="color: #bc8f8f;">"keyboard-state"</span>,
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"hyprland/language",
+</span>  <span style="color: #bc8f8f;">"battery"</span>,
+  <span style="color: #bc8f8f;">"custom/pacman"</span>,
+  <span style="color: #bc8f8f;">"clock#date"</span>,
+  <span style="color: #bc8f8f;">"clock#time"</span>,
+  <span style="color: #bc8f8f;">"wireplumber"</span>,
+  <span style="color: #bc8f8f;">"tray"</span>,
+  <span style="color: #bc8f8f;">"custom/power"</span>
+],
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbd5061f" class="outline-4">
+<h4 id="orgbd5061f">Modules Configuration</h4>
+<div class="outline-text-4" id="text-orgbd5061f">
+</div>
+<ul class="org-ul">
+<li><a id="orgfacdd0b"></a>mpris<br />
+<div class="outline-text-5" id="text-orgfacdd0b">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"mpris"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{player_icon} {title}"</span>,
+  <span style="color: #bc8f8f;">"format-paused"</span>: <span style="color: #bc8f8f;">"{status_icon} &lt;i&gt;{title}&lt;/i&gt;"</span>,
+  <span style="color: #bc8f8f;">"player-icons"</span>: {
+    <span style="color: #bc8f8f;">"default"</span>: <span style="color: #bc8f8f;">"&#9654;"</span>,
+    <span style="color: #bc8f8f;">"mpv"</span>: <span style="color: #bc8f8f;">"&#127925;"</span>
+  },
+  <span style="color: #bc8f8f;">"status-icons"</span>: {
+    <span style="color: #bc8f8f;">"paused"</span>: <span style="color: #bc8f8f;">"&#9208;"</span>
+  },
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org6c04d2d"></a>backlight<br />
+<div class="outline-text-5" id="text-org6c04d2d">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"backlight"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61829; {percent}%"</span>,
+  <span style="color: #bc8f8f;">"interval"</span>: 2,
+  <span style="color: #bc8f8f;">"on-scroll-up"</span>: <span style="color: #bc8f8f;">"brightnessctl set +1%"</span>,
+  <span style="color: #bc8f8f;">"on-scroll-down"</span>: <span style="color: #bc8f8f;">"brightnessctl set 1%-"</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgba02cbd"></a>hyprland/workspaces<br />
+<div class="outline-text-5" id="text-orgba02cbd">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/workspaces"</span>: {
+  <span style="color: #b22222;">//</span><span style="color: #b22222;">"num-tags": 6,
+</span>  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{id}"</span>,
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"format-icons": {
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"1": "&#59285;",
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"2": "&#60100;",
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"3": "&#984479;",
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"4": "&#986811;",
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"5": "&#983572;",
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"6": "&#985489;",
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"7": "&#61723;",
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"8": "&#984148;",
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"9": "&#61786;",
+</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"10": "&#62770;"
+</span>  <span style="color: #b22222;">// </span><span style="color: #b22222;">},
+</span>  <span style="color: #bc8f8f;">"active-only"</span>: <span style="color: #5f9ea0;">false</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org8415325"></a>hyprland/languages<br />
+<div class="outline-text-5" id="text-org8415325">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/language"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{}"</span>,
+  <span style="color: #bc8f8f;">"format-en"</span>: <span style="color: #bc8f8f;">"en"</span>,
+  <span style="color: #bc8f8f;">"keyboard-name"</span>: <span style="color: #bc8f8f;">"at-translated-set-2-keyboard"</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org5d8ee7d"></a>hyprland/window<br />
+<div class="outline-text-5" id="text-org5d8ee7d">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/window"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{title}"</span>,
+  <span style="color: #bc8f8f;">"rewrite"</span>: {
+    <span style="color: #bc8f8f;">"(.*) &#8212; Mozilla Firefox"</span>: <span style="color: #bc8f8f;">"&#127758; $1"</span>,
+    <span style="color: #bc8f8f;">"(.*) - (GNU Emacs at.*)"</span>: <span style="color: #bc8f8f;">"$1"</span>
+  },
+  <span style="color: #bc8f8f;">"max-length"</span>: 80,
+  <span style="color: #bc8f8f;">"separate-outputs"</span>: <span style="color: #5f9ea0;">true</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org6c87a65"></a>hyprland/submap<br />
+<div class="outline-text-5" id="text-org6c87a65">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/submap"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{}"</span>,
+  <span style="color: #bc8f8f;">"max-length"</span>: 8,
+  <span style="color: #bc8f8f;">"tooltip"</span>: <span style="color: #5f9ea0;">false</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgeae1f7b"></a>keyboard-state<br />
+<div class="outline-text-5" id="text-orgeae1f7b">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"keyboard-state"</span>: {
+  <span style="color: #bc8f8f;">"numlock"</span>: <span style="color: #5f9ea0;">false</span>,
+  <span style="color: #bc8f8f;">"capslock"</span>: <span style="color: #5f9ea0;">true</span>,
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{name} {icon}"</span>,
+  <span style="color: #bc8f8f;">"format-icons"</span>: {
+    <span style="color: #bc8f8f;">"locked"</span>: <span style="color: #bc8f8f;">"&#61475;"</span>,
+    <span style="color: #bc8f8f;">"unlocked"</span>: <span style="color: #bc8f8f;">"&#61596;"</span>
+  }
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org44e4d23"></a>mpd<br />
+<div class="outline-text-5" id="text-org44e4d23">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"mpd"</span>: {
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) &#11816;{songPosition}|{queueLength}&#11817; {volume}% &#61441;",
+</span>  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61441;  {title} - {artist} {stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}[{songPosition}/{queueLength}] [{volume}%]"</span>,
+  <span style="color: #bc8f8f;">"format-disconnected"</span>: <span style="color: #bc8f8f;">"Disconnected &#61441;"</span>,
+  <span style="color: #bc8f8f;">"format-stopped"</span>: <span style="color: #bc8f8f;">"{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped &#61441;"</span>,
+  <span style="color: #bc8f8f;">"unknown-tag"</span>: <span style="color: #bc8f8f;">"N/A"</span>,
+  <span style="color: #bc8f8f;">"interval"</span>: 2,
+  <span style="color: #bc8f8f;">"consume-icons"</span>: {
+    <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61636; "</span>
+  },
+  <span style="color: #bc8f8f;">"random-icons"</span>: {
+    <span style="color: #bc8f8f;">"off"</span>: <span style="color: #bc8f8f;">"&lt;span color=\"#f53c3c\"&gt;&#61556;&lt;/span&gt; "</span>,
+    <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61556; "</span>
+  },
+  <span style="color: #bc8f8f;">"repeat-icons"</span>: {
+    <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61470; "</span>
+  },
+  <span style="color: #bc8f8f;">"single-icons"</span>: {
+    <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61470;1 "</span>
+  },
+  <span style="color: #bc8f8f;">"state-icons"</span>: {
+    <span style="color: #bc8f8f;">"paused"</span>: <span style="color: #bc8f8f;">"&#61516;"</span>,
+    <span style="color: #bc8f8f;">"playing"</span>: <span style="color: #bc8f8f;">"&#61515;"</span>
+  },
+  <span style="color: #bc8f8f;">"tooltip-format"</span>: <span style="color: #bc8f8f;">"MPD (connected)"</span>,
+  <span style="color: #bc8f8f;">"tooltip-format-disconnected"</span>: <span style="color: #bc8f8f;">"MPD (disconnected)"</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org2f42ace"></a>idle_inhibitor<br />
+<div class="outline-text-5" id="text-org2f42ace">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"idle_inhibitor"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{icon}"</span>,
+  <span style="color: #bc8f8f;">"format-icons"</span>: {
+    <span style="color: #bc8f8f;">"activated"</span>: <span style="color: #bc8f8f;">"&#61550;"</span>,
+    <span style="color: #bc8f8f;">"deactivated"</span>: <span style="color: #bc8f8f;">"&#61552;"</span>
+  }
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org97ecd3b"></a>tray<br />
+<div class="outline-text-5" id="text-org97ecd3b">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"tray"</span>: {
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"icon-size": 21,
+</span>  <span style="color: #bc8f8f;">"spacing"</span>: 10
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org4b88a0e"></a>clock<br />
+<div class="outline-text-5" id="text-org4b88a0e">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"clock#date"</span>: {
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"timezone": "America/New_York",
+</span>  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61555; {:%Y/%m/%d(%a)}"</span>,
+  <span style="color: #bc8f8f;">"on-click"</span>: <span style="color: #bc8f8f;">"alacritty --class khal -e khal interactive"</span>,
+  <span style="color: #bc8f8f;">"tooltip-format"</span>: <span style="color: #bc8f8f;">"&lt;big&gt;{:%Y %B}&lt;/big&gt;\n&lt;tt&gt;&lt;small&gt;{calendar}&lt;/small&gt;&lt;/tt&gt;"</span>
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"format-alt": "{:%Y-%m-%d}"
+</span>},
+<span style="color: #bc8f8f;">"clock#time"</span>: {
+  <span style="color: #bc8f8f;">"interval"</span>: 1,
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{:%H:%M:%S}"</span>,
+  <span style="color: #bc8f8f;">"tooltip"</span>: <span style="color: #5f9ea0;">false</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org709095e"></a>cpu<br />
+<div class="outline-text-5" id="text-org709095e">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"cpu"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{usage}% &#62171;"</span>,
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"format": "&#62171; {}%",
+</span>  <span style="color: #bc8f8f;">"tooltip"</span>: <span style="color: #5f9ea0;">true</span>,
+  <span style="color: #bc8f8f;">"interval"</span>: 15
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org7a087e0"></a>memory<br />
+<div class="outline-text-5" id="text-org7a087e0">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"memory"</span>: {
+  <span style="color: #bc8f8f;">"interval"</span>: 30,
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{}% &#61641;"</span>
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"max-length": 50
+</span>},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org0bfca18"></a>temperature<br />
+<div class="outline-text-5" id="text-org0bfca18">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"temperature"</span>: {
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"thermal-zone": 2,
+</span>  <span style="color: #b22222;">// </span><span style="color: #b22222;">"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+</span>  <span style="color: #bc8f8f;">"critical-threshold"</span>: 80,
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"format-critical": "{temperatureC}&#176;C {icon}",
+</span>  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{temperatureC}&#176;C {icon}"</span>,
+  <span style="color: #bc8f8f;">"format-icons"</span>: [<span style="color: #bc8f8f;">"&#63339;"</span>, <span style="color: #bc8f8f;">"&#62153;"</span>, <span style="color: #bc8f8f;">"&#63337;"</span>]
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgae28d15"></a>battery<br />
+<div class="outline-text-5" id="text-orgae28d15">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"battery"</span>: {
+  <span style="color: #bc8f8f;">"states"</span>: {
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">"good": 95,
+</span>    <span style="color: #bc8f8f;">"warning"</span>: 30,
+    <span style="color: #bc8f8f;">"critical"</span>: 15
+  },
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">" {icon} {capacity}%"</span>,
+  <span style="color: #bc8f8f;">"format-charging"</span>: <span style="color: #bc8f8f;">"&#62951; {capacity}%"</span>,
+  <span style="color: #bc8f8f;">"format-plugged"</span>: <span style="color: #bc8f8f;">"&#61926; {capacity}%"</span>,
+  <span style="color: #bc8f8f;">"format-alt"</span>: <span style="color: #bc8f8f;">"{icon} {time}"</span>,
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"format-good": "", // An empty format will hide the module
+</span>  <span style="color: #b22222;">// </span><span style="color: #b22222;">"format-full": "",
+</span>  <span style="color: #bc8f8f;">"format-icons"</span>: [<span style="color: #bc8f8f;">"&#62020;"</span>, <span style="color: #bc8f8f;">"&#62019;"</span>, <span style="color: #bc8f8f;">"&#62018;"</span>, <span style="color: #bc8f8f;">"&#62017;"</span>, <span style="color: #bc8f8f;">"&#62016;"</span>]
+},
+<span style="color: #bc8f8f;">"battery#bat2"</span>: {
+  <span style="color: #bc8f8f;">"bat"</span>: <span style="color: #bc8f8f;">"BAT2"</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org5355938"></a>network<br />
+<div class="outline-text-5" id="text-org5355938">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"network"</span>: {
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"interface": "wlp2*", // (Optional) To force the use of this interface
+</span>  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{ifname}"</span>,
+  <span style="color: #bc8f8f;">"format-wifi"</span>: <span style="color: #bc8f8f;">"{essid} ({signalStrength}%) &#61931;"</span>,
+  <span style="color: #bc8f8f;">"format-ethernet"</span>: <span style="color: #bc8f8f;">"{ipaddr}/{cidr} &#63382;"</span>,
+  <span style="color: #bc8f8f;">"tooltip-format"</span>: <span style="color: #bc8f8f;">"{ifname} via {gwaddr} &#63382;"</span>,
+  <span style="color: #bc8f8f;">"format-linked"</span>: <span style="color: #bc8f8f;">"{ifname} (No IP) &#63382;"</span>,
+  <span style="color: #bc8f8f;">"format-disconnected"</span>: <span style="color: #bc8f8f;">"Disconnected &#9888;"</span>,
+  <span style="color: #bc8f8f;">"format-alt"</span>: <span style="color: #bc8f8f;">"{ifname}: {ipaddr}/{cidr} ({bandwidthUpBits} - {bandwidthDownBits})"</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orga3ee49b"></a>wireplumber<br />
+<div class="outline-text-5" id="text-orga3ee49b">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"wireplumber"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{icon} {volume}%"</span>,
+  <span style="color: #bc8f8f;">"format-icons"</span>: [<span style="color: #bc8f8f;">"&#984447;"</span>, <span style="color: #bc8f8f;">"&#984448;"</span>, <span style="color: #bc8f8f;">"&#984446;"</span>],
+  <span style="color: #bc8f8f;">"format-muted"</span>: <span style="color: #bc8f8f;">"&#63145;"</span>,
+  <span style="color: #bc8f8f;">"on-click"</span>: <span style="color: #bc8f8f;">"helvum"</span>,
+  <span style="color: #bc8f8f;">"on-click-right"</span>: <span style="color: #bc8f8f;">"pwvucontrol"</span>,
+  <span style="color: #bc8f8f;">"scroll-step"</span>: 0.2
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgd316303"></a>pulseaudio<br />
+<div class="outline-text-5" id="text-orgd316303">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"pulseaudio"</span>: {
+  <span style="color: #b22222;">// </span><span style="color: #b22222;">"scroll-step": 1, // %, can be a float
+</span>  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{volume}% {icon} {format_source}"</span>,
+  <span style="color: #bc8f8f;">"format-bluetooth"</span>: <span style="color: #bc8f8f;">"{volume}% {icon}&#62100; {format_source}"</span>,
+  <span style="color: #bc8f8f;">"format-bluetooth-muted"</span>: <span style="color: #bc8f8f;">"&#63145; {icon}&#62100; {format_source}"</span>,
+  <span style="color: #bc8f8f;">"format-muted"</span>: <span style="color: #bc8f8f;">"&#63145; {format_source}"</span>,
+  <span style="color: #bc8f8f;">"format-source"</span>: <span style="color: #bc8f8f;">"{volume}% &#61744;"</span>,
+  <span style="color: #bc8f8f;">"format-source-muted"</span>: <span style="color: #bc8f8f;">"&#61745;"</span>,
+  <span style="color: #bc8f8f;">"format-icons"</span>: {
+    <span style="color: #bc8f8f;">"headphone"</span>: <span style="color: #bc8f8f;">"&#61477;"</span>,
+    <span style="color: #bc8f8f;">"hands-free"</span>: <span style="color: #bc8f8f;">"&#62864;"</span>,
+    <span style="color: #bc8f8f;">"headset"</span>: <span style="color: #bc8f8f;">"&#62864;"</span>,
+    <span style="color: #bc8f8f;">"phone"</span>: <span style="color: #bc8f8f;">"&#61589;"</span>,
+    <span style="color: #bc8f8f;">"portable"</span>: <span style="color: #bc8f8f;">"&#61589;"</span>,
+    <span style="color: #bc8f8f;">"car"</span>: <span style="color: #bc8f8f;">"&#61881;"</span>,
+    <span style="color: #bc8f8f;">"default"</span>: [<span style="color: #bc8f8f;">"&#61478;"</span>, <span style="color: #bc8f8f;">"&#61479;"</span>, <span style="color: #bc8f8f;">"&#61480;"</span>]
+  },
+  <span style="color: #bc8f8f;">"on-click"</span>: <span style="color: #bc8f8f;">"wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org4987d88"></a>custom/pacman<br />
+<div class="outline-text-5" id="text-org4987d88">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"custom/pacman"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61538; {} update available"</span>,
+  <span style="color: #bc8f8f;">"exec"</span>: <span style="color: #bc8f8f;">"checkupdates | wc -l"</span>,
+  <span style="color: #bc8f8f;">"exec-if"</span>: <span style="color: #bc8f8f;">"test $(checkupdates | wc -l) -ne 0"</span>,
+  <span style="color: #bc8f8f;">"interval"</span>: 3600,
+  <span style="color: #bc8f8f;">"on-click"</span>: <span style="color: #bc8f8f;">"checkupdates; pkill -SIGRTMIN+8 waybar"</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgfd69ad3"></a>custom/launcher<br />
+<div class="outline-text-5" id="text-orgfd69ad3">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"custom/launcher"</span>:{
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#62211; "</span>,
+  <span style="color: #bc8f8f;">"tooltip"</span>: <span style="color: #5f9ea0;">false</span>,
+  <span style="color: #bc8f8f;">"on-click"</span>: <span style="color: #bc8f8f;">"rofi -show drun -theme hyprland-menu"</span>,
+  <span style="color: #bc8f8f;">"on-click-right"</span>: <span style="color: #bc8f8f;">"killall rofi"</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org65a5b16"></a>custom/power<br />
+<div class="outline-text-5" id="text-org65a5b16">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"custom/power"</span>:{
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61752; "</span>,
+  <span style="color: #bc8f8f;">"tooltip"</span>: <span style="color: #5f9ea0;">false</span>,
+  <span style="color: #bc8f8f;">"on-click"</span>: <span style="color: #bc8f8f;">"~/.local/bin/rofi-logout hyprland-logout"</span>
+},
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orga349188"></a>custom/media<br />
+<div class="outline-text-5" id="text-orga349188">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #bc8f8f;">"custom/media"</span>: {
+  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{icon} {}"</span>,
+  <span style="color: #bc8f8f;">"return-type"</span>: <span style="color: #bc8f8f;">"json"</span>,
+  <span style="color: #bc8f8f;">"max-length"</span>: 40,
+  <span style="color: #bc8f8f;">"format-icons"</span>: {
+    <span style="color: #bc8f8f;">"spotify"</span>: <span style="color: #bc8f8f;">"&#61884;"</span>,
+    <span style="color: #bc8f8f;">"default"</span>: <span style="color: #bc8f8f;">"&#127900;"</span>
+  },
+  <span style="color: #bc8f8f;">"escape"</span>: <span style="color: #5f9ea0;">true</span>,
+  <span style="color: #bc8f8f;">"exec"</span>: <span style="color: #bc8f8f;">"$HOME/.config/waybar/mediaplayer.py 2&gt; /dev/null"</span> <span style="color: #b22222;">// </span><span style="color: #b22222;">Script in resources folder
+</span>  <span style="color: #b22222;">// </span><span style="color: #b22222;">"exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2&gt; /dev/null" // Filter player based on name
+</span>}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org404005d" class="outline-3">
+<h3 id="org404005d"><code>~/.config/waybar/style.css</code></h3>
+<div class="outline-text-3" id="text-org404005d">
+</div>
+<div id="outline-container-orge99a152" class="outline-4">
+<h4 id="orge99a152">definitions</h4>
+<div class="outline-text-4" id="text-orge99a152">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #b22222;">/* </span><span style="color: #b22222;">Nord</span><span style="color: #b22222;"> */</span>
+<span style="color: #00008b;">@define-color</span> background <span style="color: #ffffff; background-color: #2e3440;">rgba(46, 52, 64, 1)</span>;
+<span style="color: #00008b;">@define-color</span> background2 <span style="color: #ffffff; background-color: #2e3440;">rgba(46, 52, 64, 0.75)</span>;
+<span style="color: #00008b;">@define-color</span> <span style="color: #000000; background-color: #00ffff;">cyan</span> <span style="color: #000000; background-color: #88c0d0;">rgba(136, 192, 208, 1)</span>;
+<span style="color: #00008b;">@define-color</span> cyan2 <span style="color: #000000; background-color: #88c0d0;">rgba(136, 192, 208, 0.6)</span>;
+<span style="color: #00008b;">@define-color</span> <span style="color: #ffffff; background-color: #ff0000;">red</span> <span style="color: #ffffff; background-color: #bf616a;">rgba(191, 97, 106, 1)</span>;
+<span style="color: #00008b;">@define-color</span> red2 <span style="color: #ffffff; background-color: #bf616a;">rgba(191, 97, 106, 0.6)</span>;
+<span style="color: #00008b;">@define-color</span> foreground <span style="color: #000000; background-color: #d8dee9;">rgba(216, 222, 233, 1)</span>;
+<span style="color: #00008b;">@define-color</span> <span style="color: #ffffff; background-color: #000000;">black</span> <span style="color: #ffffff; background-color: #161320;">#161320</span>;
+<span style="color: #00008b;">@define-color</span> <span style="color: #000000; background-color: #008000;">green</span> <span style="color: #000000; background-color: #a3be8c;">rgba(163, 190, 140, 1)</span>;
+<span style="color: #00008b;">@define-color</span> green2 <span style="color: #000000; background-color: #a3be8c;">rgba(163, 190, 140, 0.3)</span>;
+<span style="color: #00008b;">@define-color</span> <span style="color: #000000; background-color: #ffff00;">yellow</span> <span style="color: #000000; background-color: #ebcb8b;">rgba(235, 203, 139, 1)</span>;
+<span style="color: #00008b;">@define-color</span> yellow2 <span style="color: #000000; background-color: #ebcb8b;">rgba(235, 203, 139, 0.45)</span>;
+<span style="color: #00008b;">@define-color</span> <span style="color: #ffffff; background-color: #0000ff;">blue</span> <span style="color: #000000; background-color: #81a1c1;">rgba(129, 161, 193, 1)</span>;
+<span style="color: #00008b;">@define-color</span> blue2 <span style="color: #000000; background-color: #81a1c1;">rgba(129, 161, 193, 0.45)</span>;
+<span style="color: #00008b;">@define-color</span> <span style="color: #ffffff; background-color: #ff00ff;">magenta</span> <span style="color: #ffffff; background-color: #b48ead;">rgba(180, 142, 173, 1)</span>;
+<span style="color: #00008b;">@define-color</span> magenta2 <span style="color: #ffffff; background-color: #b48ead;">rgba(180, 142, 173, 0.5)</span>;
+<span style="color: #00008b;">@define-color</span> <span style="color: #000000; background-color: #ffffff;">white</span> <span style="color: #000000; background-color: #e5e9f0;">rgba(229, 233, 240, 1)</span>;
+
+<span style="color: #00008b;">@define-color</span> light <span style="color: #000000; background-color: #D8DEE9;">#D8DEE9</span>;
+<span style="color: #b22222;">/*</span><span style="color: #b22222;">@define-color dark @nord_dark_font;</span><span style="color: #b22222;">*/</span>
+<span style="color: #00008b;">@define-color</span> warning <span style="color: #000000; background-color: #ebcb8b;">#ebcb8b</span>;
+<span style="color: #00008b;">@define-color</span> critical <span style="color: #ffffff; background-color: #BF616A;">#BF616A</span>;
+<span style="color: #00008b;">@define-color</span> mode <span style="color: #ffffff; background-color: #434C5E;">#434C5E</span>;
+<span style="color: #b22222;">/*</span><span style="color: #b22222;">@define-color workspaces @bg;</span><span style="color: #b22222;">*/</span>
+<span style="color: #b22222;">/*</span><span style="color: #b22222;">@define-color workspaces @nord_dark_font;</span><span style="color: #b22222;">*/</span>
+<span style="color: #b22222;">/*</span><span style="color: #b22222;">@define-color workspacesfocused #434C5E;</span><span style="color: #b22222;">*/</span>
+<span style="color: #00008b;">@define-color</span> workspacebutton <span style="color: #00008b;">@white</span>;
+<span style="color: #00008b;">@define-color</span> launcher <span style="color: #000000; background-color: #5e81ac;">rgba(94, 129, 172, 1)</span>;
+<span style="color: #00008b;">@define-color</span> tray <span style="color: #00008b;">@workspacesfocused</span>;
+<span style="color: #00008b;">@define-color</span> sound <span style="color: #000000; background-color: #EBCB8B;">#EBCB8B</span>;
+<span style="color: #00008b;">@define-color</span> network <span style="color: #ffffff; background-color: #5D7096;">#5D7096</span>;
+<span style="color: #00008b;">@define-color</span> memory <span style="color: #ffffff; background-color: #546484;">#546484</span>;
+<span style="color: #00008b;">@define-color</span> cpu <span style="color: #ffffff; background-color: #596a8d;">rgba(89, 106, 141, 1)</span>;
+<span style="color: #00008b;">@define-color</span> keyboard <span style="color: #000000; background-color: #a3be8c;">rgba(163, 190, 140, 1)</span>;
+<span style="color: #00008b;">@define-color</span> battery <span style="color: #ffffff; background-color: #b48ead;">rgba(180, 142, 173, 1)</span>;
+<span style="color: #00008b;">@define-color</span> temp <span style="color: #ffffff; background-color: #4D5C78;">#4D5C78</span>;
+<span style="color: #00008b;">@define-color</span> layout <span style="color: #000000; background-color: #5e81ac;">rgba(94, 129, 172, 1)</span>;
+<span style="color: #00008b;">@define-color</span> wireplumber <span style="color: #000000; background-color: #88c0d0;">#88c0d0</span>;
+<span style="color: #00008b;">@define-color</span> date <span style="color: #000000; background-color: #88c0d0;">rgba(136, 192, 208, 1)</span>;
+<span style="color: #00008b;">@define-color</span> time <span style="color: #ffffff; background-color: #b48ead;">rgba(180, 142, 173, 1)</span>;
+<span style="color: #00008b;">@define-color</span> backlight <span style="color: #ffffff; background-color: #434c5e;">rgba(67, 76, 94, 1)</span>;
+<span style="color: #00008b;">@define-color</span> nord_bg <span style="color: #ffffff; background-color: #434c5e;">rgba(67, 76, 94, 1)</span>;
+<span style="color: #00008b;">@define-color</span> nord_bg_blue <span style="color: #ffffff; background-color: #546484;">#546484</span>;
+<span style="color: #00008b;">@define-color</span> nord_light <span style="color: #000000; background-color: #D8DEE9;">#D8DEE9</span>;
+<span style="color: #00008b;">@define-color</span> nord_light_font <span style="color: #000000; background-color: #D8DEE9;">#D8DEE9</span>;
+<span style="color: #00008b;">@define-color</span> nord_dark_font <span style="color: #ffffff; background-color: #434C5E;">#434C5E</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org05581a6" class="outline-4">
+<h4 id="org05581a6">global</h4>
+<div class="outline-text-4" id="text-org05581a6">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">*</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">`otf-font-awesome` is required to be installed for icons</span><span style="color: #b22222;"> */</span>
+    <span style="color: #4169e1;">border</span>: none;
+    <span style="color: #4169e1;">border-radius</span>: 10px;
+    <span style="color: #4169e1;">font-family</span>: FontAwesome, JetBrainsMonoNL Nerd Font Mono;
+    <span style="color: #4169e1;">font-size</span>: 8px;
+    <span style="color: #4169e1;">min-height</span>: 10px;
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1e8ba71" class="outline-4">
+<h4 id="org1e8ba71">keyframes</h4>
+<div class="outline-text-4" id="text-org1e8ba71">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #00008b;">@keyframes</span> blink {
+    <span style="color: #0000ff;">to</span> {
+        <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@red</span>;
+        <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@cyan</span>;
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org28a8748" class="outline-4">
+<h4 id="org28a8748">window</h4>
+<div class="outline-text-4" id="text-org28a8748">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">window#waybar</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @background2;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #4169e1;">background-color</span>: transparent;
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">border-bottom: 3px solid @cyan;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @white;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">transition-property: background-color;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">transition-duration: .5s;</span><span style="color: #b22222;"> */</span>
+}
+
+<span style="color: #0000ff;">window#waybar.hidden</span> {
+    <span style="color: #4169e1;">opacity</span>: 0.2;
+}
+
+<span style="color: #0000ff;">window#waybar.empty #window</span> {
+    <span style="color: #4169e1;">background-color</span>: transparent;
+}
+
+<span style="color: #0000ff;">#window</span> {
+    <span style="color: #4169e1;">margin-top</span>: 6px;
+    <span style="color: #4169e1;">margin-left</span>: 8px;
+    <span style="color: #4169e1;">padding-left</span>: 10px;
+    <span style="color: #4169e1;">padding-right</span>: 10px;
+    <span style="color: #4169e1;">border-radius</span>: 10px;
+    <span style="color: #4169e1;">transition</span>: none;
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+    <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@white</span>;
+    <span style="color: #4169e1;">font-size</span>:14px;
+    <span style="color: #4169e1;">font-weight</span>: bold;
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org38eb16e" class="outline-4">
+<h4 id="org38eb16e">button</h4>
+<div class="outline-text-4" id="text-org38eb16e">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">button</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">Use box-shadow instead of border so the text isn't offset</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">box-shadow: inset 0 -3px transparent;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">Avoid rounded borders under each button name</span><span style="color: #b22222;"> */</span>
+    <span style="color: #4169e1;">border</span>: none;
+    <span style="color: #4169e1;">border-radius</span>: 0;
+}
+
+<span style="color: #b22222;">/* </span><span style="color: #b22222;">https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect</span><span style="color: #b22222;"> */</span>
+<span style="color: #0000ff;">button:hover</span> {
+    <span style="color: #4169e1;">background</span>: inherit;
+    <span style="color: #4169e1;">border-top</span>: 2px solid <span style="color: #00008b;">@red</span>;
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbb912eb" class="outline-4">
+<h4 id="orgbb912eb">tooltip</h4>
+<div class="outline-text-4" id="text-orgbb912eb">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">tooltip</span> {
+    <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@background</span>;
+    <span style="color: #4169e1;">border</span>: 1px solid <span style="color: #00008b;">@cyan</span>;
+}
+
+<span style="color: #0000ff;">tooltip label</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @white;</span><span style="color: #b22222;"> */</span>
+}
+
+<span style="color: #0000ff;">label:focus</span> {
+    <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@background</span>;
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org05c4728" class="outline-4">
+<h4 id="org05c4728">modules</h4>
+<div class="outline-text-4" id="text-org05c4728">
+</div>
+<ul class="org-ul">
+<li><a id="orgc494ef0"></a>cpu<br />
+<div class="outline-text-5" id="text-orgc494ef0">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#cpu</span> {
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@cyan2</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgb37fab0"></a>memory<br />
+<div class="outline-text-5" id="text-orgb37fab0">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#memory</span> {
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@magenta</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgd345301"></a>keyboard-state<br />
+<div class="outline-text-5" id="text-orgd345301">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#keyboard-state</span> {
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@magenta</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgedf19ea"></a>temperature<br />
+<div class="outline-text-5" id="text-orgedf19ea">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#temperature</span> {
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@red</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org2d9968e"></a>modules-left<br />
+<div class="outline-text-5" id="text-org2d9968e">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">.modules-left &gt; widget:first-child &gt; #workspaces</span> {
+    <span style="color: #4169e1;">margin-left</span>: 0;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org5d4ebc3"></a>modules-right<br />
+<div class="outline-text-5" id="text-org5d4ebc3">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">.modules-right &gt; widget:last-child &gt; #workspaces</span> {
+    <span style="color: #4169e1;">margin-right</span>: 0;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org9d060fb"></a>mpris<br />
+<div class="outline-text-5" id="text-org9d060fb">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#mpris</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">padding: 0 4px;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">font-size: 9px;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @warning;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@blue</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orge5b015a"></a>idle_inhibitor<br />
+<div class="outline-text-5" id="text-orge5b015a">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#idle_inhibitor</span> {
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@blue</span>;
+}
+
+<span style="color: #0000ff;">#idle_inhibitor.activated</span> {
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org12ac382"></a>backlight<br />
+<div class="outline-text-5" id="text-org12ac382">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#backlight</span>{
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @yellow;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@yellow</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org2f2a46d"></a>pulseaudio<br />
+<div class="outline-text-5" id="text-org2f2a46d">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#pulseaudio</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @magenta2;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @wireplumber;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@blue</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgd30a9ef"></a>wireplumber<br />
+<div class="outline-text-5" id="text-orgd30a9ef">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#wireplumber</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @magenta2;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@blue</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org51b4e54"></a>keyboard-state<br />
+<div class="outline-text-5" id="text-org51b4e54">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#keyboard-state</span> {
+    <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@green</span>;
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org20524e7"></a>battery<br />
+<div class="outline-text-5" id="text-org20524e7">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#battery</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @battery;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @yellow2;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@magenta</span>;
+}
+
+<span style="color: #0000ff;">#battery.charging, #battery.plugged</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @yellow;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @background;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+    <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@magenta</span>;
+}
+
+<span style="color: #b22222;">/* </span><span style="color: #b22222;">#battery.warning:not(.charging) {</span><span style="color: #b22222;"> */</span>
+<span style="color: #b22222;">/*     </span><span style="color: #b22222;">/\* background: @red; *\/</span><span style="color: #b22222;"> */</span>
+<span style="color: #b22222;">/*     </span><span style="color: #b22222;">/\* color: @white; *\/</span><span style="color: #b22222;"> */</span>
+<span style="color: #b22222;">/*     </span><span style="color: #b22222;">animation-name: blink;</span><span style="color: #b22222;"> */</span>
+<span style="color: #b22222;">/*     </span><span style="color: #b22222;">animation-duration: 0.5s;</span><span style="color: #b22222;"> */</span>
+<span style="color: #b22222;">/*     </span><span style="color: #b22222;">animation-timing-function: steps(12);</span><span style="color: #b22222;"> */</span>
+<span style="color: #b22222;">/*     </span><span style="color: #b22222;">animation-iteration-count: infinite;</span><span style="color: #b22222;"> */</span>
+<span style="color: #b22222;">/*     </span><span style="color: #b22222;">animation-direction: alternate;</span><span style="color: #b22222;"> */</span>
+<span style="color: #b22222;">/* </span><span style="color: #b22222;">}</span><span style="color: #b22222;"> */</span>
+
+<span style="color: #0000ff;">#battery.critical:not(.charging)</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @red;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @white;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">animation-name: blink;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">animation-duration: 0.5s;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">animation-timing-function: linear;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">animation-iteration-count: infinite;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">animation-direction: alternate;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@magenta</span>;
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+    <span style="color: #4169e1;">animation-name</span>: blink;
+    <span style="color: #4169e1;">animation-duration</span>: 0.5s;
+    <span style="color: #4169e1;">animation-timing-function</span>: linear;
+    <span style="color: #4169e1;">animation-iteration-count</span>: infinite;
+    <span style="color: #4169e1;">animation-direction</span>: alternate;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgc164a72"></a>custom/pacman<br />
+<div class="outline-text-5" id="text-orgc164a72">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#custom-pacman</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @black;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @green2;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@yellow</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org3e69509"></a>clock<br />
+<div class="outline-text-5" id="text-org3e69509">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#clock.date</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @date;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @magenta2;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@green</span>;
+}
+
+<span style="color: #0000ff;">#clock.time</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @time;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@yellow</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org9656d8a"></a>network<br />
+<div class="outline-text-5" id="text-org9656d8a">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#network</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @network;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@magenta</span>;
+}
+
+<span style="color: #0000ff;">#network.wifi</span> {
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+    <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@yellow</span>;
+}
+
+<span style="color: #0000ff;">#network.ethernet</span> {
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+    <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@blue</span>;
+}
+
+<span style="color: #0000ff;">#network.linked</span> {
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+    <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@green</span>;
+}
+
+<span style="color: #0000ff;">#network.disconnected</span> {
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@red</span>;
+    <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@black</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org75cc4ff"></a>custom-launcher<br />
+<div class="outline-text-5" id="text-org75cc4ff">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#custom-launcher</span> {
+      <span style="color: #4169e1;">font-size</span>: 24px;
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 5px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+    <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@blue</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org7c43d53"></a>custom-power<br />
+<div class="outline-text-5" id="text-org7c43d53">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#custom-power</span> {
+      <span style="color: #4169e1;">font-size</span>: 24px;
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 5px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@blue</span>;
+}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org8307758" class="outline-4">
+<h4 id="org8307758">workspaces</h4>
+<div class="outline-text-4" id="text-org8307758">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#workspaces</span> {
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+    <span style="color: #4169e1;">margin-left</span>: 12px;
+    <span style="color: #4169e1;">font-size</span>: 4px;
+    <span style="color: #4169e1;">margin-bottom</span>: 0px;
+    <span style="color: #4169e1;">border-radius</span>: 10px;
+    <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@green</span>;
+    <span style="color: #4169e1;">transition</span>: none;
+}
+
+<span style="color: #0000ff;">#workspaces button</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @nord_light;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">padding: 0 4px;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @workspacebutton;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">font-size: 14px;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">font-weight: bold;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+      <span style="color: #4169e1;">background</span>: transparent;
+      <span style="color: #4169e1;">font-size</span>: 16px;
+      <span style="color: #4169e1;">border-radius</span>: 2px;
+}
+
+<span style="color: #0000ff;">#workspaces button.occupied</span> {
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@blue</span>;
+      <span style="color: #4169e1;">background</span>: transparent;
+      <span style="color: #4169e1;">font-size</span>: 4px;
+}
+
+<span style="color: #0000ff;">#workspaces button.empty</span> {
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@cyan</span>;
+}
+
+<span style="color: #0000ff;">#workspaces button.active</span> {
+    <span style="color: #4169e1;">font-weight</span>: bold;
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@white</span>;
+}
+
+<span style="color: #0000ff;">#workspaces button:hover</span> {
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #b22222;">/* </span><span style="color: #b22222;">box-shadow: inherit;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #b22222;">/* </span><span style="color: #b22222;">text-shadow: inherit;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@yellow</span>;
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">border-color: @red;</span><span style="color: #b22222;"> */</span>
+}
+
+<span style="color: #0000ff;">#workspaces button.focused</span> {
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @black;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @red;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">border-top: 2px solid @red;</span><span style="color: #b22222;"> */</span>
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@green</span>;
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">border-top: 2px solid @green;</span><span style="color: #b22222;"> */</span>
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">border-bottom: 2px solid @green;</span><span style="color: #b22222;"> */</span>
+}
+
+<span style="color: #0000ff;">#workspaces button.focused:hover</span> {
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@red</span>;
+}
+
+<span style="color: #0000ff;">#workspaces button.urgent</span> {
+    <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@red</span>;
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org98f5abe" class="outline-4">
+<h4 id="org98f5abe">mode</h4>
+<div class="outline-text-4" id="text-org98f5abe">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#mode</span> {
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9e05ccd" class="outline-4">
+<h4 id="org9e05ccd">submap</h4>
+<div class="outline-text-4" id="text-org9e05ccd">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#submap</span> {
+    <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@yellow</span>;
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaea771a" class="outline-4">
+<h4 id="orgaea771a">tray</h4>
+<div class="outline-text-4" id="text-orgaea771a">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #0000ff;">#tray</span> {
+      <span style="color: #4169e1;">margin-top</span>: 6px;
+      <span style="color: #4169e1;">margin-left</span>: 8px;
+      <span style="color: #4169e1;">padding-left</span>: 10px;
+      <span style="color: #4169e1;">padding-right</span>: 10px;
+      <span style="color: #4169e1;">margin-bottom</span>: 0px;
+      <span style="color: #4169e1;">border-radius</span>: 10px;
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@white</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@blue</span>;
+}
+
+<span style="color: #0000ff;">#tray &gt; .passive</span> {
+    -gtk-icon-effect: dim;
+}
+
+<span style="color: #0000ff;">#tray &gt; .needs-attention</span> {
+    -gtk-icon-effect: highlight;
+    <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@red</span>;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2025-09-17 Wed 00:00</p>
+<p class="author">Author: Kristian Alexander P</p>
+<p class="date">Created: 2025-09-17 Wed 09:48</p>
+</div>
+</body>
+</html>
