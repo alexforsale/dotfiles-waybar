@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-17 Wed 09:48 -->
+<!-- 2025-09-17 Wed 10:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>waybar Configuration</title>
@@ -204,122 +204,94 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf90f910">waybar</a>
+<li><a href="#orge2eff87">waybar</a>
 <ul>
-<li><a href="#org9f884d2"><code>~/.config/waybar/config</code></a>
+<li><a href="#org88bcd80"><code>~/.config/waybar/config</code></a>
 <ul>
-<li><a href="#org08c20ef">General</a></li>
-<li><a href="#org8d77aab">Left Modules</a></li>
-<li><a href="#orgd4e50d5">Center Modules</a></li>
-<li><a href="#org4db3f98">Right Modules</a></li>
-<li><a href="#orgbd5061f">Modules Configuration</a></li>
+<li><a href="#orgf99b85a">General</a></li>
+<li><a href="#orge629490">Left Modules</a></li>
+<li><a href="#org4c23a29">Center Modules</a></li>
+<li><a href="#orge92388f">Right Modules</a></li>
+<li><a href="#orgd0d8156">Modules Configuration</a></li>
 </ul>
 </li>
-<li><a href="#org404005d"><code>~/.config/waybar/style.css</code></a>
+<li><a href="#orga2eedf9"><code>~/.config/waybar/style.css</code></a>
 <ul>
-<li><a href="#orge99a152">definitions</a></li>
-<li><a href="#org05581a6">global</a></li>
-<li><a href="#org1e8ba71">keyframes</a></li>
-<li><a href="#org28a8748">window</a></li>
-<li><a href="#org38eb16e">button</a></li>
-<li><a href="#orgbb912eb">tooltip</a></li>
-<li><a href="#org05c4728">modules</a></li>
-<li><a href="#org8307758">workspaces</a></li>
-<li><a href="#org98f5abe">mode</a></li>
-<li><a href="#org9e05ccd">submap</a></li>
-<li><a href="#orgaea771a">tray</a></li>
-</ul>
-</li>
+<li><a href="#org751d940">definitions</a></li>
+<li><a href="#org749b9d2">global</a></li>
+<li><a href="#org125a0bc">keyframes</a></li>
+<li><a href="#orgb3fff07">window</a></li>
+<li><a href="#org00e13dc">button</a></li>
+<li><a href="#orgd2627f9">tooltip</a></li>
+<li><a href="#orga5a97ed">modules</a></li>
+<li><a href="#org4b74775">workspaces</a></li>
+<li><a href="#orgc217374">mode</a></li>
+<li><a href="#org7485c16">submap</a></li>
+<li><a href="#org813c4c4">tray</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-orgf90f910" class="outline-2">
-<h2 id="orgf90f910">waybar</h2>
-<div class="outline-text-2" id="text-orgf90f910">
+<div id="outline-container-orge2eff87" class="outline-2">
+<h2 id="orge2eff87">waybar</h2>
+<div class="outline-text-2" id="text-orge2eff87">
 </div>
-<div id="outline-container-org9f884d2" class="outline-3">
-<h3 id="org9f884d2"><code>~/.config/waybar/config</code></h3>
-<div class="outline-text-3" id="text-org9f884d2">
+<div id="outline-container-org88bcd80" class="outline-3">
+<h3 id="org88bcd80"><code>~/.config/waybar/config</code></h3>
+<div class="outline-text-3" id="text-org88bcd80">
 </div>
-<div id="outline-container-org08c20ef" class="outline-4">
-<h4 id="org08c20ef">General</h4>
-<div class="outline-text-4" id="text-org08c20ef">
+<div id="outline-container-orgf99b85a" class="outline-4">
+<h4 id="orgf99b85a">General</h4>
+<div class="outline-text-4" id="text-orgf99b85a">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"layer"</span>: <span style="color: #bc8f8f;">"top"</span>, <span style="color: #b22222;">// </span><span style="color: #b22222;">Waybar at top layer
-</span><span style="color: #bc8f8f;">"output"</span>: [<span style="color: #bc8f8f;">"eDP-1"</span>, <span style="color: #bc8f8f;">"DP-1"</span>, <span style="color: #bc8f8f;">"DP-2"</span>, <span style="color: #bc8f8f;">"DP-3"</span>, <span style="color: #bc8f8f;">"DP-4"</span>, <span style="color: #bc8f8f;">"DP-5"</span>, <span style="color: #bc8f8f;">"HDMI-A-1"</span>],
-<span style="color: #bc8f8f;">"position"</span>: <span style="color: #bc8f8f;">"top"</span>, <span style="color: #b22222;">// </span><span style="color: #b22222;">Waybar position (top|bottom|left|right)
-</span><span style="color: #b22222;">//</span><span style="color: #b22222;">"height": 34, // Waybar height (to be removed for auto height)
-</span><span style="color: #b22222;">// </span><span style="color: #b22222;">"width": 1280, // Waybar width
+</span><span style="color: #bc8f8f;">"position"</span>: <span style="color: #bc8f8f;">"top"</span>, <span style="color: #b22222;">// </span><span style="color: #b22222;">Waybar position (top|bottom|left|right)
+</span><span style="color: #bc8f8f;">"height"</span>: 34, <span style="color: #b22222;">// </span><span style="color: #b22222;">Waybar height (to be removed for auto height)
 </span><span style="color: #bc8f8f;">"spacing"</span>: 4, <span style="color: #b22222;">// </span><span style="color: #b22222;">Gaps between modules (4px)
-</span><span style="color: #b22222;">//</span><span style="color: #b22222;">"start_hidden": "true",
-</span><span style="color: #b22222;">// </span><span style="color: #b22222;">Choose the order of the modules</span>
+</span><span style="color: #bc8f8f;">"modules-left"</span>: [<span style="color: #bc8f8f;">"hyprland/workspaces"</span>, <span style="color: #bc8f8f;">"pulseaudio"</span>, <span style="color: #bc8f8f;">"network"</span>],
+<span style="color: #bc8f8f;">"modules-center"</span>: [<span style="color: #bc8f8f;">"hyprland/window"</span>],
+<span style="color: #bc8f8f;">"modules-right"</span>: [<span style="color: #bc8f8f;">"hyprland/submap"</span>, <span style="color: #bc8f8f;">"cpu"</span>, <span style="color: #bc8f8f;">"memory"</span>, <span style="color: #bc8f8f;">"temperature"</span>, <span style="color: #bc8f8f;">"battery"</span>, <span style="color: #bc8f8f;">"tray"</span>, <span style="color: #bc8f8f;">"clock"</span>],
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org8d77aab" class="outline-4">
-<h4 id="org8d77aab">Left Modules</h4>
-<div class="outline-text-4" id="text-org8d77aab">
+<div id="outline-container-orge629490" class="outline-4">
+<h4 id="orge629490">Left Modules</h4>
+<div class="outline-text-4" id="text-orge629490">
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #bc8f8f;">"modules-left"</span>: [
-  <span style="color: #bc8f8f;">"custom/launcher"</span>,
-  <span style="color: #bc8f8f;">"hyprland/workspaces"</span>,
-  <span style="color: #bc8f8f;">"hyprland/submap"</span>
-  <span style="color: #b22222;">// </span><span style="color: #b22222;">"mpris"
-</span>  <span style="color: #b22222;">// </span><span style="color: #b22222;">"custom/media"
-</span>],
+<pre class="src src-js"><span style="color: #bc8f8f;">"modules-left"</span>: [<span style="color: #bc8f8f;">"hyprland/workspaces"</span>, <span style="color: #bc8f8f;">"pulseaudio"</span>, <span style="color: #bc8f8f;">"network"</span>],
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd4e50d5" class="outline-4">
-<h4 id="orgd4e50d5">Center Modules</h4>
-<div class="outline-text-4" id="text-orgd4e50d5">
+<div id="outline-container-org4c23a29" class="outline-4">
+<h4 id="org4c23a29">Center Modules</h4>
+<div class="outline-text-4" id="text-org4c23a29">
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #bc8f8f;">"modules-center"</span>: [
-  <span style="color: #bc8f8f;">"hyprland/window"</span>
-],
+<pre class="src src-js"><span style="color: #bc8f8f;">"modules-center"</span>: [<span style="color: #bc8f8f;">"hyprland/window"</span>],
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org4db3f98" class="outline-4">
-<h4 id="org4db3f98">Right Modules</h4>
-<div class="outline-text-4" id="text-org4db3f98">
+<div id="outline-container-orge92388f" class="outline-4">
+<h4 id="orge92388f">Right Modules</h4>
+<div class="outline-text-4" id="text-orge92388f">
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #bc8f8f;">"modules-right"</span>: [
-  <span style="color: #b22222;">// </span><span style="color: #b22222;">"mpd",
-</span>  <span style="color: #b22222;">// </span><span style="color: #b22222;">"idle_inhibitor",
-</span>  <span style="color: #bc8f8f;">"backlight"</span>,
-  <span style="color: #bc8f8f;">"pulseaudio"</span>,
-  <span style="color: #b22222;">// </span><span style="color: #b22222;">"wireplumber",
-</span>  <span style="color: #bc8f8f;">"network"</span>,
-  <span style="color: #bc8f8f;">"cpu"</span>,
-  <span style="color: #bc8f8f;">"memory"</span>,
-  <span style="color: #bc8f8f;">"temperature"</span>,
-  <span style="color: #bc8f8f;">"keyboard-state"</span>,
-  <span style="color: #b22222;">// </span><span style="color: #b22222;">"hyprland/language",
-</span>  <span style="color: #bc8f8f;">"battery"</span>,
-  <span style="color: #bc8f8f;">"custom/pacman"</span>,
-  <span style="color: #bc8f8f;">"clock#date"</span>,
-  <span style="color: #bc8f8f;">"clock#time"</span>,
-  <span style="color: #bc8f8f;">"wireplumber"</span>,
-  <span style="color: #bc8f8f;">"tray"</span>,
-  <span style="color: #bc8f8f;">"custom/power"</span>
-],
+<pre class="src src-js"><span style="color: #bc8f8f;">"modules-right"</span>: [<span style="color: #bc8f8f;">"hyprland/submap"</span>, <span style="color: #bc8f8f;">"cpu"</span>, <span style="color: #bc8f8f;">"memory"</span>, <span style="color: #bc8f8f;">"temperature"</span>, <span style="color: #bc8f8f;">"battery"</span>, <span style="color: #bc8f8f;">"tray"</span>, <span style="color: #bc8f8f;">"clock"</span>],
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbd5061f" class="outline-4">
-<h4 id="orgbd5061f">Modules Configuration</h4>
-<div class="outline-text-4" id="text-orgbd5061f">
+<div id="outline-container-orgd0d8156" class="outline-4">
+<h4 id="orgd0d8156">Modules Configuration</h4>
+<div class="outline-text-4" id="text-orgd0d8156">
 </div>
 <ul class="org-ul">
-<li><a id="orgfacdd0b"></a>mpris<br />
-<div class="outline-text-5" id="text-orgfacdd0b">
+<li><a id="orgd112edd"></a>mpris<br />
+<div class="outline-text-5" id="text-orgd112edd">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"mpris"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{player_icon} {title}"</span>,
@@ -336,8 +308,8 @@
 </div>
 </div>
 </li>
-<li><a id="org6c04d2d"></a>backlight<br />
-<div class="outline-text-5" id="text-org6c04d2d">
+<li><a id="org2f80565"></a>backlight<br />
+<div class="outline-text-5" id="text-org2f80565">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"backlight"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61829; {percent}%"</span>,
@@ -349,32 +321,32 @@
 </div>
 </div>
 </li>
-<li><a id="orgba02cbd"></a>hyprland/workspaces<br />
-<div class="outline-text-5" id="text-orgba02cbd">
+<li><a id="orgc9025bf"></a>hyprland/workspaces<br />
+<div class="outline-text-5" id="text-orgc9025bf">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/workspaces"</span>: {
-  <span style="color: #b22222;">//</span><span style="color: #b22222;">"num-tags": 6,
-</span>  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{id}"</span>,
-  <span style="color: #b22222;">// </span><span style="color: #b22222;">"format-icons": {
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"1": "&#59285;",
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"2": "&#60100;",
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"3": "&#984479;",
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"4": "&#986811;",
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"5": "&#983572;",
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"6": "&#985489;",
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"7": "&#61723;",
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"8": "&#984148;",
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"9": "&#61786;",
-</span>  <span style="color: #b22222;">//   </span><span style="color: #b22222;">"10": "&#62770;"
-</span>  <span style="color: #b22222;">// </span><span style="color: #b22222;">},
-</span>  <span style="color: #bc8f8f;">"active-only"</span>: <span style="color: #5f9ea0;">false</span>
+    <span style="color: #bc8f8f;">"disable-scroll"</span>: <span style="color: #5f9ea0;">true</span>,
+    <span style="color: #bc8f8f;">"on-click"</span>: <span style="color: #bc8f8f;">"activate"</span>,
+    <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{name}"</span>,
+    <span style="color: #bc8f8f;">"on-scroll-up"</span>: <span style="color: #bc8f8f;">"hyprctl dispatch workspace m-1 &gt; /dev/null"</span>,
+    <span style="color: #bc8f8f;">"on-scroll-down"</span>: <span style="color: #bc8f8f;">"hyprctl dispatch workspace m+1 &gt; /dev/null"</span>,
+    <span style="color: #bc8f8f;">"format-icons"</span>: {
+        <span style="color: #bc8f8f;">"1"</span>: <span style="color: #bc8f8f;">"&#61728;"</span>,
+        <span style="color: #bc8f8f;">"2"</span>: <span style="color: #bc8f8f;">"&#62056;"</span>,
+        <span style="color: #bc8f8f;">"3"</span>: <span style="color: #bc8f8f;">"&#61729;"</span>,
+        <span style="color: #bc8f8f;">"4"</span>: <span style="color: #bc8f8f;">"&#61884;"</span>,
+        <span style="color: #bc8f8f;">"5"</span>: <span style="color: #bc8f8f;">"&#61557;"</span>,
+        <span style="color: #bc8f8f;">"urgent"</span>: <span style="color: #bc8f8f;">"&#61546;"</span>,
+        <span style="color: #bc8f8f;">"focused"</span>: <span style="color: #bc8f8f;">"&#61842;"</span>,
+        <span style="color: #bc8f8f;">"default"</span>: <span style="color: #bc8f8f;">"&#61713;"</span>
+    }
 },
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org8415325"></a>hyprland/languages<br />
-<div class="outline-text-5" id="text-org8415325">
+<li><a id="org115404d"></a>hyprland/languages<br />
+<div class="outline-text-5" id="text-org115404d">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/language"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{}"</span>,
@@ -385,24 +357,19 @@
 </div>
 </div>
 </li>
-<li><a id="org5d8ee7d"></a>hyprland/window<br />
-<div class="outline-text-5" id="text-org5d8ee7d">
+<li><a id="org2d9647b"></a>hyprland/window<br />
+<div class="outline-text-5" id="text-org2d9647b">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/window"</span>: {
-  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{title}"</span>,
-  <span style="color: #bc8f8f;">"rewrite"</span>: {
-    <span style="color: #bc8f8f;">"(.*) &#8212; Mozilla Firefox"</span>: <span style="color: #bc8f8f;">"&#127758; $1"</span>,
-    <span style="color: #bc8f8f;">"(.*) - (GNU Emacs at.*)"</span>: <span style="color: #bc8f8f;">"$1"</span>
-  },
-  <span style="color: #bc8f8f;">"max-length"</span>: 80,
-  <span style="color: #bc8f8f;">"separate-outputs"</span>: <span style="color: #5f9ea0;">true</span>
+      <span style="color: #bc8f8f;">"max-length"</span>: 50,
+      <span style="color: #bc8f8f;">"separate-outputs"</span>: <span style="color: #5f9ea0;">true</span>
 },
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org6c87a65"></a>hyprland/submap<br />
-<div class="outline-text-5" id="text-org6c87a65">
+<li><a id="orgac1fd30"></a>hyprland/submap<br />
+<div class="outline-text-5" id="text-orgac1fd30">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"hyprland/submap"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{}"</span>,
@@ -413,8 +380,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgeae1f7b"></a>keyboard-state<br />
-<div class="outline-text-5" id="text-orgeae1f7b">
+<li><a id="orgfabb708"></a>keyboard-state<br />
+<div class="outline-text-5" id="text-orgfabb708">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"keyboard-state"</span>: {
   <span style="color: #bc8f8f;">"numlock"</span>: <span style="color: #5f9ea0;">false</span>,
@@ -429,42 +396,41 @@
 </div>
 </div>
 </li>
-<li><a id="org44e4d23"></a>mpd<br />
-<div class="outline-text-5" id="text-org44e4d23">
+<li><a id="orged49d92"></a>mpd<br />
+<div class="outline-text-5" id="text-orged49d92">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"mpd"</span>: {
-  <span style="color: #b22222;">// </span><span style="color: #b22222;">"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) &#11816;{songPosition}|{queueLength}&#11817; {volume}% &#61441;",
-</span>  <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61441;  {title} - {artist} {stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}[{songPosition}/{queueLength}] [{volume}%]"</span>,
-  <span style="color: #bc8f8f;">"format-disconnected"</span>: <span style="color: #bc8f8f;">"Disconnected &#61441;"</span>,
-  <span style="color: #bc8f8f;">"format-stopped"</span>: <span style="color: #bc8f8f;">"{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped &#61441;"</span>,
-  <span style="color: #bc8f8f;">"unknown-tag"</span>: <span style="color: #bc8f8f;">"N/A"</span>,
-  <span style="color: #bc8f8f;">"interval"</span>: 2,
-  <span style="color: #bc8f8f;">"consume-icons"</span>: {
-    <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61636; "</span>
-  },
-  <span style="color: #bc8f8f;">"random-icons"</span>: {
-    <span style="color: #bc8f8f;">"off"</span>: <span style="color: #bc8f8f;">"&lt;span color=\"#f53c3c\"&gt;&#61556;&lt;/span&gt; "</span>,
-    <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61556; "</span>
-  },
-  <span style="color: #bc8f8f;">"repeat-icons"</span>: {
-    <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61470; "</span>
-  },
-  <span style="color: #bc8f8f;">"single-icons"</span>: {
-    <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61470;1 "</span>
-  },
-  <span style="color: #bc8f8f;">"state-icons"</span>: {
-    <span style="color: #bc8f8f;">"paused"</span>: <span style="color: #bc8f8f;">"&#61516;"</span>,
-    <span style="color: #bc8f8f;">"playing"</span>: <span style="color: #bc8f8f;">"&#61515;"</span>
-  },
-  <span style="color: #bc8f8f;">"tooltip-format"</span>: <span style="color: #bc8f8f;">"MPD (connected)"</span>,
-  <span style="color: #bc8f8f;">"tooltip-format-disconnected"</span>: <span style="color: #bc8f8f;">"MPD (disconnected)"</span>
+    <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) &#11816;{songPosition}|{queueLength}&#11817; {volume}% &#61441;"</span>,
+    <span style="color: #bc8f8f;">"format-disconnected"</span>: <span style="color: #bc8f8f;">"Disconnected &#61441;"</span>,
+    <span style="color: #bc8f8f;">"format-stopped"</span>: <span style="color: #bc8f8f;">"{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped &#61441;"</span>,
+    <span style="color: #bc8f8f;">"unknown-tag"</span>: <span style="color: #bc8f8f;">"N/A"</span>,
+    <span style="color: #bc8f8f;">"interval"</span>: 2,
+    <span style="color: #bc8f8f;">"consume-icons"</span>: {
+        <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61636; "</span>
+    },
+    <span style="color: #bc8f8f;">"random-icons"</span>: {
+        <span style="color: #bc8f8f;">"off"</span>: <span style="color: #bc8f8f;">"&lt;span color=\"#f53c3c\"&gt;&#61556;&lt;/span&gt; "</span>,
+        <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61556; "</span>
+    },
+    <span style="color: #bc8f8f;">"repeat-icons"</span>: {
+        <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61470; "</span>
+    },
+    <span style="color: #bc8f8f;">"single-icons"</span>: {
+        <span style="color: #bc8f8f;">"on"</span>: <span style="color: #bc8f8f;">"&#61470;1 "</span>
+    },
+    <span style="color: #bc8f8f;">"state-icons"</span>: {
+        <span style="color: #bc8f8f;">"paused"</span>: <span style="color: #bc8f8f;">"&#61516;"</span>,
+        <span style="color: #bc8f8f;">"playing"</span>: <span style="color: #bc8f8f;">"&#61515;"</span>
+    },
+    <span style="color: #bc8f8f;">"tooltip-format"</span>: <span style="color: #bc8f8f;">"MPD (connected)"</span>,
+    <span style="color: #bc8f8f;">"tooltip-format-disconnected"</span>: <span style="color: #bc8f8f;">"MPD (disconnected)"</span>
 },
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org2f42ace"></a>idle_inhibitor<br />
-<div class="outline-text-5" id="text-org2f42ace">
+<li><a id="orgbe31dd9"></a>idle_inhibitor<br />
+<div class="outline-text-5" id="text-orgbe31dd9">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"idle_inhibitor"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{icon}"</span>,
@@ -477,19 +443,18 @@
 </div>
 </div>
 </li>
-<li><a id="org97ecd3b"></a>tray<br />
-<div class="outline-text-5" id="text-org97ecd3b">
+<li><a id="org38f0605"></a>tray<br />
+<div class="outline-text-5" id="text-org38f0605">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"tray"</span>: {
-  <span style="color: #b22222;">// </span><span style="color: #b22222;">"icon-size": 21,
-</span>  <span style="color: #bc8f8f;">"spacing"</span>: 10
+  <span style="color: #bc8f8f;">"spacing"</span>: 0
 },
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org4b88a0e"></a>clock<br />
-<div class="outline-text-5" id="text-org4b88a0e">
+<li><a id="org12de6e6"></a>clock<br />
+<div class="outline-text-5" id="text-org12de6e6">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"clock#date"</span>: {
   <span style="color: #b22222;">// </span><span style="color: #b22222;">"timezone": "America/New_York",
@@ -507,8 +472,8 @@
 </div>
 </div>
 </li>
-<li><a id="org709095e"></a>cpu<br />
-<div class="outline-text-5" id="text-org709095e">
+<li><a id="orgb1535e8"></a>cpu<br />
+<div class="outline-text-5" id="text-orgb1535e8">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"cpu"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{usage}% &#62171;"</span>,
@@ -520,8 +485,8 @@
 </div>
 </div>
 </li>
-<li><a id="org7a087e0"></a>memory<br />
-<div class="outline-text-5" id="text-org7a087e0">
+<li><a id="org7112f9c"></a>memory<br />
+<div class="outline-text-5" id="text-org7112f9c">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"memory"</span>: {
   <span style="color: #bc8f8f;">"interval"</span>: 30,
@@ -532,8 +497,8 @@
 </div>
 </div>
 </li>
-<li><a id="org0bfca18"></a>temperature<br />
-<div class="outline-text-5" id="text-org0bfca18">
+<li><a id="orgdf8aebc"></a>temperature<br />
+<div class="outline-text-5" id="text-orgdf8aebc">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"temperature"</span>: {
   <span style="color: #b22222;">// </span><span style="color: #b22222;">"thermal-zone": 2,
@@ -547,8 +512,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgae28d15"></a>battery<br />
-<div class="outline-text-5" id="text-orgae28d15">
+<li><a id="orgeb1c4fd"></a>battery<br />
+<div class="outline-text-5" id="text-orgeb1c4fd">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"battery"</span>: {
   <span style="color: #bc8f8f;">"states"</span>: {
@@ -571,8 +536,8 @@
 </div>
 </div>
 </li>
-<li><a id="org5355938"></a>network<br />
-<div class="outline-text-5" id="text-org5355938">
+<li><a id="org1da8ee3"></a>network<br />
+<div class="outline-text-5" id="text-org1da8ee3">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"network"</span>: {
   <span style="color: #b22222;">// </span><span style="color: #b22222;">"interface": "wlp2*", // (Optional) To force the use of this interface
@@ -588,8 +553,8 @@
 </div>
 </div>
 </li>
-<li><a id="orga3ee49b"></a>wireplumber<br />
-<div class="outline-text-5" id="text-orga3ee49b">
+<li><a id="orgbc5b21e"></a>wireplumber<br />
+<div class="outline-text-5" id="text-orgbc5b21e">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"wireplumber"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{icon} {volume}%"</span>,
@@ -603,8 +568,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgd316303"></a>pulseaudio<br />
-<div class="outline-text-5" id="text-orgd316303">
+<li><a id="orgef2416b"></a>pulseaudio<br />
+<div class="outline-text-5" id="text-orgef2416b">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"pulseaudio"</span>: {
   <span style="color: #b22222;">// </span><span style="color: #b22222;">"scroll-step": 1, // %, can be a float
@@ -629,8 +594,8 @@
 </div>
 </div>
 </li>
-<li><a id="org4987d88"></a>custom/pacman<br />
-<div class="outline-text-5" id="text-org4987d88">
+<li><a id="org822ea71"></a>custom/pacman<br />
+<div class="outline-text-5" id="text-org822ea71">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"custom/pacman"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61538; {} update available"</span>,
@@ -643,8 +608,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgfd69ad3"></a>custom/launcher<br />
-<div class="outline-text-5" id="text-orgfd69ad3">
+<li><a id="org62fbae5"></a>custom/launcher<br />
+<div class="outline-text-5" id="text-org62fbae5">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"custom/launcher"</span>:{
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#62211; "</span>,
@@ -656,8 +621,8 @@
 </div>
 </div>
 </li>
-<li><a id="org65a5b16"></a>custom/power<br />
-<div class="outline-text-5" id="text-org65a5b16">
+<li><a id="org7fba88d"></a>custom/power<br />
+<div class="outline-text-5" id="text-org7fba88d">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"custom/power"</span>:{
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"&#61752; "</span>,
@@ -668,8 +633,8 @@
 </div>
 </div>
 </li>
-<li><a id="orga349188"></a>custom/media<br />
-<div class="outline-text-5" id="text-orga349188">
+<li><a id="org1ba9cdf"></a>custom/media<br />
+<div class="outline-text-5" id="text-org1ba9cdf">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #bc8f8f;">"custom/media"</span>: {
   <span style="color: #bc8f8f;">"format"</span>: <span style="color: #bc8f8f;">"{icon} {}"</span>,
@@ -690,68 +655,125 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org404005d" class="outline-3">
-<h3 id="org404005d"><code>~/.config/waybar/style.css</code></h3>
-<div class="outline-text-3" id="text-org404005d">
+<div id="outline-container-orga2eedf9" class="outline-3">
+<h3 id="orga2eedf9"><code>~/.config/waybar/style.css</code></h3>
+<div class="outline-text-3" id="text-orga2eedf9">
 </div>
-<div id="outline-container-orge99a152" class="outline-4">
-<h4 id="orge99a152">definitions</h4>
-<div class="outline-text-4" id="text-orge99a152">
+<div id="outline-container-org751d940" class="outline-4">
+<h4 id="org751d940">definitions</h4>
+<div class="outline-text-4" id="text-org751d940">
 <div class="org-src-container">
-<pre class="src src-css"><span style="color: #b22222;">/* </span><span style="color: #b22222;">Nord</span><span style="color: #b22222;"> */</span>
-<span style="color: #00008b;">@define-color</span> background <span style="color: #ffffff; background-color: #2e3440;">rgba(46, 52, 64, 1)</span>;
-<span style="color: #00008b;">@define-color</span> background2 <span style="color: #ffffff; background-color: #2e3440;">rgba(46, 52, 64, 0.75)</span>;
-<span style="color: #00008b;">@define-color</span> <span style="color: #000000; background-color: #00ffff;">cyan</span> <span style="color: #000000; background-color: #88c0d0;">rgba(136, 192, 208, 1)</span>;
-<span style="color: #00008b;">@define-color</span> cyan2 <span style="color: #000000; background-color: #88c0d0;">rgba(136, 192, 208, 0.6)</span>;
-<span style="color: #00008b;">@define-color</span> <span style="color: #ffffff; background-color: #ff0000;">red</span> <span style="color: #ffffff; background-color: #bf616a;">rgba(191, 97, 106, 1)</span>;
-<span style="color: #00008b;">@define-color</span> red2 <span style="color: #ffffff; background-color: #bf616a;">rgba(191, 97, 106, 0.6)</span>;
-<span style="color: #00008b;">@define-color</span> foreground <span style="color: #000000; background-color: #d8dee9;">rgba(216, 222, 233, 1)</span>;
-<span style="color: #00008b;">@define-color</span> <span style="color: #ffffff; background-color: #000000;">black</span> <span style="color: #ffffff; background-color: #161320;">#161320</span>;
-<span style="color: #00008b;">@define-color</span> <span style="color: #000000; background-color: #008000;">green</span> <span style="color: #000000; background-color: #a3be8c;">rgba(163, 190, 140, 1)</span>;
-<span style="color: #00008b;">@define-color</span> green2 <span style="color: #000000; background-color: #a3be8c;">rgba(163, 190, 140, 0.3)</span>;
-<span style="color: #00008b;">@define-color</span> <span style="color: #000000; background-color: #ffff00;">yellow</span> <span style="color: #000000; background-color: #ebcb8b;">rgba(235, 203, 139, 1)</span>;
-<span style="color: #00008b;">@define-color</span> yellow2 <span style="color: #000000; background-color: #ebcb8b;">rgba(235, 203, 139, 0.45)</span>;
-<span style="color: #00008b;">@define-color</span> <span style="color: #ffffff; background-color: #0000ff;">blue</span> <span style="color: #000000; background-color: #81a1c1;">rgba(129, 161, 193, 1)</span>;
-<span style="color: #00008b;">@define-color</span> blue2 <span style="color: #000000; background-color: #81a1c1;">rgba(129, 161, 193, 0.45)</span>;
-<span style="color: #00008b;">@define-color</span> <span style="color: #ffffff; background-color: #ff00ff;">magenta</span> <span style="color: #ffffff; background-color: #b48ead;">rgba(180, 142, 173, 1)</span>;
-<span style="color: #00008b;">@define-color</span> magenta2 <span style="color: #ffffff; background-color: #b48ead;">rgba(180, 142, 173, 0.5)</span>;
-<span style="color: #00008b;">@define-color</span> <span style="color: #000000; background-color: #ffffff;">white</span> <span style="color: #000000; background-color: #e5e9f0;">rgba(229, 233, 240, 1)</span>;
+<pre class="src src-css"><span style="color: #00008b;">@define-color</span> color00 <span style="color: #ffffff; background-color: #2e3440;">#2e3440</span>;
+<span style="color: #00008b;">@define-color</span> color01 <span style="color: #ffffff; background-color: #3b4252;">#3b4252</span>;
+<span style="color: #00008b;">@define-color</span> color02 <span style="color: #ffffff; background-color: #434c5e;">#434c5e</span>;
+<span style="color: #00008b;">@define-color</span> color03 <span style="color: #ffffff; background-color: #4c566a;">#4c566a</span>;
+<span style="color: #00008b;">@define-color</span> color04 <span style="color: #000000; background-color: #d8dee9;">#d8dee9</span>;
+<span style="color: #00008b;">@define-color</span> color05 <span style="color: #000000; background-color: #e5e9f0;">#e5e9f0</span>;
+<span style="color: #00008b;">@define-color</span> color06 <span style="color: #000000; background-color: #eceff4;">#eceff4</span>;
+<span style="color: #00008b;">@define-color</span> color07 <span style="color: #000000; background-color: #8fbcbb;">#8fbcbb</span>;
+<span style="color: #00008b;">@define-color</span> color08 <span style="color: #000000; background-color: #88c0d0;">#88c0d0</span>;
+<span style="color: #00008b;">@define-color</span> color09 <span style="color: #000000; background-color: #81a1c1;">#81a1c1</span>;
+<span style="color: #00008b;">@define-color</span> color10 <span style="color: #000000; background-color: #5e81ac;">#5e81ac</span>;
+<span style="color: #00008b;">@define-color</span> color11 <span style="color: #ffffff; background-color: #bf616a;">#bf616a</span>;
+<span style="color: #00008b;">@define-color</span> color12 <span style="color: #000000; background-color: #d08770;">#d08770</span>;
+<span style="color: #00008b;">@define-color</span> color13 <span style="color: #000000; background-color: #ebcb8b;">#ebcb8b</span>;
+<span style="color: #00008b;">@define-color</span> color14 <span style="color: #000000; background-color: #a3be8c;">#a3be8c</span>;
+<span style="color: #00008b;">@define-color</span> color15 <span style="color: #ffffff; background-color: #ba8baf;">#ba8baf</span>;
 
-<span style="color: #00008b;">@define-color</span> light <span style="color: #000000; background-color: #D8DEE9;">#D8DEE9</span>;
-<span style="color: #b22222;">/*</span><span style="color: #b22222;">@define-color dark @nord_dark_font;</span><span style="color: #b22222;">*/</span>
-<span style="color: #00008b;">@define-color</span> warning <span style="color: #000000; background-color: #ebcb8b;">#ebcb8b</span>;
-<span style="color: #00008b;">@define-color</span> critical <span style="color: #ffffff; background-color: #BF616A;">#BF616A</span>;
-<span style="color: #00008b;">@define-color</span> mode <span style="color: #ffffff; background-color: #434C5E;">#434C5E</span>;
-<span style="color: #b22222;">/*</span><span style="color: #b22222;">@define-color workspaces @bg;</span><span style="color: #b22222;">*/</span>
-<span style="color: #b22222;">/*</span><span style="color: #b22222;">@define-color workspaces @nord_dark_font;</span><span style="color: #b22222;">*/</span>
-<span style="color: #b22222;">/*</span><span style="color: #b22222;">@define-color workspacesfocused #434C5E;</span><span style="color: #b22222;">*/</span>
-<span style="color: #00008b;">@define-color</span> workspacebutton <span style="color: #00008b;">@white</span>;
-<span style="color: #00008b;">@define-color</span> launcher <span style="color: #000000; background-color: #5e81ac;">rgba(94, 129, 172, 1)</span>;
-<span style="color: #00008b;">@define-color</span> tray <span style="color: #00008b;">@workspacesfocused</span>;
-<span style="color: #00008b;">@define-color</span> sound <span style="color: #000000; background-color: #EBCB8B;">#EBCB8B</span>;
-<span style="color: #00008b;">@define-color</span> network <span style="color: #ffffff; background-color: #5D7096;">#5D7096</span>;
-<span style="color: #00008b;">@define-color</span> memory <span style="color: #ffffff; background-color: #546484;">#546484</span>;
-<span style="color: #00008b;">@define-color</span> cpu <span style="color: #ffffff; background-color: #596a8d;">rgba(89, 106, 141, 1)</span>;
-<span style="color: #00008b;">@define-color</span> keyboard <span style="color: #000000; background-color: #a3be8c;">rgba(163, 190, 140, 1)</span>;
-<span style="color: #00008b;">@define-color</span> battery <span style="color: #ffffff; background-color: #b48ead;">rgba(180, 142, 173, 1)</span>;
-<span style="color: #00008b;">@define-color</span> temp <span style="color: #ffffff; background-color: #4D5C78;">#4D5C78</span>;
-<span style="color: #00008b;">@define-color</span> layout <span style="color: #000000; background-color: #5e81ac;">rgba(94, 129, 172, 1)</span>;
-<span style="color: #00008b;">@define-color</span> wireplumber <span style="color: #000000; background-color: #88c0d0;">#88c0d0</span>;
-<span style="color: #00008b;">@define-color</span> date <span style="color: #000000; background-color: #88c0d0;">rgba(136, 192, 208, 1)</span>;
-<span style="color: #00008b;">@define-color</span> time <span style="color: #ffffff; background-color: #b48ead;">rgba(180, 142, 173, 1)</span>;
-<span style="color: #00008b;">@define-color</span> backlight <span style="color: #ffffff; background-color: #434c5e;">rgba(67, 76, 94, 1)</span>;
-<span style="color: #00008b;">@define-color</span> nord_bg <span style="color: #ffffff; background-color: #434c5e;">rgba(67, 76, 94, 1)</span>;
-<span style="color: #00008b;">@define-color</span> nord_bg_blue <span style="color: #ffffff; background-color: #546484;">#546484</span>;
-<span style="color: #00008b;">@define-color</span> nord_light <span style="color: #000000; background-color: #D8DEE9;">#D8DEE9</span>;
-<span style="color: #00008b;">@define-color</span> nord_light_font <span style="color: #000000; background-color: #D8DEE9;">#D8DEE9</span>;
-<span style="color: #00008b;">@define-color</span> nord_dark_font <span style="color: #ffffff; background-color: #434C5E;">#434C5E</span>;
+<span style="color: #0000ff;">*</span> {
+      <span style="color: #4169e1;">transition</span>: none;
+      <span style="color: #4169e1;">box-shadow</span>: none;
+}
+
+<span style="color: #0000ff;">#waybar</span> {
+      <span style="color: #4169e1;">font-family</span>: <span style="color: #bc8f8f;">'JetBrainsMonoNL Nerd Font Mono'</span>, sans-serif;
+      <span style="color: #4169e1;">font-size</span>: 1.2em;
+      <span style="color: #4169e1;">font-weight</span>: 400;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@color06</span>;
+      <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@color01</span>;
+}
+
+<span style="color: #0000ff;">#workspaces</span> {
+      <span style="color: #4169e1;">margin</span>: 0 4px;
+}
+
+<span style="color: #0000ff;">#workspaces button</span> {
+      <span style="color: #4169e1;">margin</span>: 4px 0;
+      <span style="color: #4169e1;">padding</span>: 0 4px;
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@color03</span>;
+}
+
+<span style="color: #0000ff;">#workspaces button.visible</span> {
+}
+
+<span style="color: #0000ff;">#workspaces button.active</span> {
+      <span style="color: #4169e1;">border-radius</span>: 4px;
+      <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@color02</span>;
+}
+
+<span style="color: #0000ff;">#workspaces button.urgent</span> {
+      <span style="color: #4169e1;">color</span>: <span style="color: #ffffff; background-color: #ee2e24;">rgba(238, 46, 36, 1)</span>;
+}
+
+<span style="color: #0000ff;">#tray</span> {
+      <span style="color: #4169e1;">margin</span>: 4px 4px 4px 4px;
+      <span style="color: #4169e1;">border-radius</span>: 4px;
+      <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@color02</span>;
+}
+
+<span style="color: #0000ff;">#tray *</span> {
+      <span style="color: #4169e1;">padding</span>: 0 6px;
+      <span style="color: #4169e1;">border-left</span>: 1px solid <span style="color: #00008b;">@color00</span>;
+}
+
+<span style="color: #0000ff;">#tray *:first-child</span> {
+      <span style="color: #4169e1;">border-left</span>: none;
+}
+
+<span style="color: #0000ff;">#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature, #language</span>{
+      <span style="color: #4169e1;">margin</span>: 4px 2px;
+      <span style="color: #4169e1;">padding</span>: 0 6px;
+      <span style="color: #4169e1;">background-color</span>: <span style="color: #00008b;">@color02</span>;
+      <span style="color: #4169e1;">border-radius</span>: 4px;
+      <span style="color: #4169e1;">min-width</span>: 20px;
+}
+
+<span style="color: #0000ff;">#pulseaudio.muted</span> {
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@base0F</span>;
+}
+
+<span style="color: #0000ff;">#pulseaudio.bluetooth</span> {
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@color13</span>;
+}
+
+<span style="color: #0000ff;">#clock</span> {
+      <span style="color: #4169e1;">margin-left</span>: 0px;
+      <span style="color: #4169e1;">margin-right</span>: 4px;
+      <span style="color: #4169e1;">background-color</span>: transparent;
+}
+
+<span style="color: #0000ff;">#temperature.critical</span> {
+      <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@color13</span>;
+}
+
+<span style="color: #0000ff;">#window</span> {
+      <span style="color: #4169e1;">font-size</span>: 0.9em;
+      <span style="color: #4169e1;">font-weight</span>: 400;
+      <span style="color: #4169e1;">font-family</span>: sans-serif;
+}
+
+<span style="color: #0000ff;">#language</span> {
+      <span style="color: #4169e1;">font-size</span>: 0.9em;
+      <span style="color: #4169e1;">font-weight</span>: 500;
+      <span style="color: #4169e1;">letter-spacing</span>: -1px;
+}
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org05581a6" class="outline-4">
-<h4 id="org05581a6">global</h4>
-<div class="outline-text-4" id="text-org05581a6">
+<div id="outline-container-org749b9d2" class="outline-4">
+<h4 id="org749b9d2">global</h4>
+<div class="outline-text-4" id="text-org749b9d2">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">*</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">`otf-font-awesome` is required to be installed for icons</span><span style="color: #b22222;"> */</span>
@@ -765,9 +787,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org1e8ba71" class="outline-4">
-<h4 id="org1e8ba71">keyframes</h4>
-<div class="outline-text-4" id="text-org1e8ba71">
+<div id="outline-container-org125a0bc" class="outline-4">
+<h4 id="org125a0bc">keyframes</h4>
+<div class="outline-text-4" id="text-org125a0bc">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #00008b;">@keyframes</span> blink {
     <span style="color: #0000ff;">to</span> {
@@ -779,9 +801,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org28a8748" class="outline-4">
-<h4 id="org28a8748">window</h4>
-<div class="outline-text-4" id="text-org28a8748">
+<div id="outline-container-orgb3fff07" class="outline-4">
+<h4 id="orgb3fff07">window</h4>
+<div class="outline-text-4" id="text-orgb3fff07">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">window#waybar</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @background2;</span><span style="color: #b22222;"> */</span>
@@ -816,9 +838,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org38eb16e" class="outline-4">
-<h4 id="org38eb16e">button</h4>
-<div class="outline-text-4" id="text-org38eb16e">
+<div id="outline-container-org00e13dc" class="outline-4">
+<h4 id="org00e13dc">button</h4>
+<div class="outline-text-4" id="text-org00e13dc">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">button</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">Use box-shadow instead of border so the text isn't offset</span><span style="color: #b22222;"> */</span>
@@ -837,9 +859,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgbb912eb" class="outline-4">
-<h4 id="orgbb912eb">tooltip</h4>
-<div class="outline-text-4" id="text-orgbb912eb">
+<div id="outline-container-orgd2627f9" class="outline-4">
+<h4 id="orgd2627f9">tooltip</h4>
+<div class="outline-text-4" id="text-orgd2627f9">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">tooltip</span> {
     <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@background</span>;
@@ -857,13 +879,13 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org05c4728" class="outline-4">
-<h4 id="org05c4728">modules</h4>
-<div class="outline-text-4" id="text-org05c4728">
+<div id="outline-container-orga5a97ed" class="outline-4">
+<h4 id="orga5a97ed">modules</h4>
+<div class="outline-text-4" id="text-orga5a97ed">
 </div>
 <ul class="org-ul">
-<li><a id="orgc494ef0"></a>cpu<br />
-<div class="outline-text-5" id="text-orgc494ef0">
+<li><a id="orgf021ddd"></a>cpu<br />
+<div class="outline-text-5" id="text-orgf021ddd">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#cpu</span> {
       <span style="color: #4169e1;">margin-top</span>: 6px;
@@ -880,8 +902,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgb37fab0"></a>memory<br />
-<div class="outline-text-5" id="text-orgb37fab0">
+<li><a id="org1d5fbe1"></a>memory<br />
+<div class="outline-text-5" id="text-org1d5fbe1">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#memory</span> {
       <span style="color: #4169e1;">margin-top</span>: 6px;
@@ -898,8 +920,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgd345301"></a>keyboard-state<br />
-<div class="outline-text-5" id="text-orgd345301">
+<li><a id="orgf7d2966"></a>keyboard-state<br />
+<div class="outline-text-5" id="text-orgf7d2966">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#keyboard-state</span> {
       <span style="color: #4169e1;">margin-top</span>: 6px;
@@ -916,8 +938,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgedf19ea"></a>temperature<br />
-<div class="outline-text-5" id="text-orgedf19ea">
+<li><a id="org015bb46"></a>temperature<br />
+<div class="outline-text-5" id="text-org015bb46">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#temperature</span> {
       <span style="color: #4169e1;">margin-top</span>: 6px;
@@ -934,8 +956,8 @@
 </div>
 </div>
 </li>
-<li><a id="org2d9968e"></a>modules-left<br />
-<div class="outline-text-5" id="text-org2d9968e">
+<li><a id="org1d070b9"></a>modules-left<br />
+<div class="outline-text-5" id="text-org1d070b9">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">.modules-left &gt; widget:first-child &gt; #workspaces</span> {
     <span style="color: #4169e1;">margin-left</span>: 0;
@@ -944,8 +966,8 @@
 </div>
 </div>
 </li>
-<li><a id="org5d4ebc3"></a>modules-right<br />
-<div class="outline-text-5" id="text-org5d4ebc3">
+<li><a id="orge9a8419"></a>modules-right<br />
+<div class="outline-text-5" id="text-orge9a8419">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">.modules-right &gt; widget:last-child &gt; #workspaces</span> {
     <span style="color: #4169e1;">margin-right</span>: 0;
@@ -954,8 +976,8 @@
 </div>
 </div>
 </li>
-<li><a id="org9d060fb"></a>mpris<br />
-<div class="outline-text-5" id="text-org9d060fb">
+<li><a id="orgd389496"></a>mpris<br />
+<div class="outline-text-5" id="text-orgd389496">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#mpris</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">padding: 0 4px;</span><span style="color: #b22222;"> */</span>
@@ -975,8 +997,8 @@
 </div>
 </div>
 </li>
-<li><a id="orge5b015a"></a>idle_inhibitor<br />
-<div class="outline-text-5" id="text-orge5b015a">
+<li><a id="org2720830"></a>idle_inhibitor<br />
+<div class="outline-text-5" id="text-org2720830">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#idle_inhibitor</span> {
     <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@blue</span>;
@@ -989,8 +1011,8 @@
 </div>
 </div>
 </li>
-<li><a id="org12ac382"></a>backlight<br />
-<div class="outline-text-5" id="text-org12ac382">
+<li><a id="org5663ff2"></a>backlight<br />
+<div class="outline-text-5" id="text-org5663ff2">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#backlight</span>{
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @yellow;</span><span style="color: #b22222;"> */</span>
@@ -1008,8 +1030,8 @@
 </div>
 </div>
 </li>
-<li><a id="org2f2a46d"></a>pulseaudio<br />
-<div class="outline-text-5" id="text-org2f2a46d">
+<li><a id="org116beaf"></a>pulseaudio<br />
+<div class="outline-text-5" id="text-org116beaf">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#pulseaudio</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @magenta2;</span><span style="color: #b22222;"> */</span>
@@ -1028,8 +1050,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgd30a9ef"></a>wireplumber<br />
-<div class="outline-text-5" id="text-orgd30a9ef">
+<li><a id="orgd64bc4e"></a>wireplumber<br />
+<div class="outline-text-5" id="text-orgd64bc4e">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#wireplumber</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">background-color: @magenta2;</span><span style="color: #b22222;"> */</span>
@@ -1047,8 +1069,8 @@
 </div>
 </div>
 </li>
-<li><a id="org51b4e54"></a>keyboard-state<br />
-<div class="outline-text-5" id="text-org51b4e54">
+<li><a id="orgcacae7d"></a>keyboard-state<br />
+<div class="outline-text-5" id="text-orgcacae7d">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#keyboard-state</span> {
     <span style="color: #4169e1;">background</span>: <span style="color: #00008b;">@green</span>;
@@ -1058,8 +1080,8 @@
 </div>
 </div>
 </li>
-<li><a id="org20524e7"></a>battery<br />
-<div class="outline-text-5" id="text-org20524e7">
+<li><a id="org545ddd1"></a>battery<br />
+<div class="outline-text-5" id="text-org545ddd1">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#battery</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @battery;</span><span style="color: #b22222;"> */</span>
@@ -1112,8 +1134,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgc164a72"></a>custom/pacman<br />
-<div class="outline-text-5" id="text-orgc164a72">
+<li><a id="orgf685013"></a>custom/pacman<br />
+<div class="outline-text-5" id="text-orgf685013">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#custom-pacman</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @black;</span><span style="color: #b22222;"> */</span>
@@ -1132,8 +1154,8 @@
 </div>
 </div>
 </li>
-<li><a id="org3e69509"></a>clock<br />
-<div class="outline-text-5" id="text-org3e69509">
+<li><a id="org6cd3d71"></a>clock<br />
+<div class="outline-text-5" id="text-org6cd3d71">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#clock.date</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @date;</span><span style="color: #b22222;"> */</span>
@@ -1165,8 +1187,8 @@
 </div>
 </div>
 </li>
-<li><a id="org9656d8a"></a>network<br />
-<div class="outline-text-5" id="text-org9656d8a">
+<li><a id="orgc986d66"></a>network<br />
+<div class="outline-text-5" id="text-orgc986d66">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#network</span> {
     <span style="color: #b22222;">/* </span><span style="color: #b22222;">color: @network;</span><span style="color: #b22222;"> */</span>
@@ -1204,8 +1226,8 @@
 </div>
 </div>
 </li>
-<li><a id="org75cc4ff"></a>custom-launcher<br />
-<div class="outline-text-5" id="text-org75cc4ff">
+<li><a id="orgda043f6"></a>custom-launcher<br />
+<div class="outline-text-5" id="text-orgda043f6">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#custom-launcher</span> {
       <span style="color: #4169e1;">font-size</span>: 24px;
@@ -1222,8 +1244,8 @@
 </div>
 </div>
 </li>
-<li><a id="org7c43d53"></a>custom-power<br />
-<div class="outline-text-5" id="text-org7c43d53">
+<li><a id="orgecc5780"></a>custom-power<br />
+<div class="outline-text-5" id="text-orgecc5780">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#custom-power</span> {
       <span style="color: #4169e1;">font-size</span>: 24px;
@@ -1242,9 +1264,9 @@
 </li>
 </ul>
 </div>
-<div id="outline-container-org8307758" class="outline-4">
-<h4 id="org8307758">workspaces</h4>
-<div class="outline-text-4" id="text-org8307758">
+<div id="outline-container-org4b74775" class="outline-4">
+<h4 id="org4b74775">workspaces</h4>
+<div class="outline-text-4" id="text-org4b74775">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#workspaces</span> {
       <span style="color: #4169e1;">margin-top</span>: 6px;
@@ -1313,9 +1335,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org98f5abe" class="outline-4">
-<h4 id="org98f5abe">mode</h4>
-<div class="outline-text-4" id="text-org98f5abe">
+<div id="outline-container-orgc217374" class="outline-4">
+<h4 id="orgc217374">mode</h4>
+<div class="outline-text-4" id="text-orgc217374">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#mode</span> {
     <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@black</span>;
@@ -1324,9 +1346,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org9e05ccd" class="outline-4">
-<h4 id="org9e05ccd">submap</h4>
-<div class="outline-text-4" id="text-org9e05ccd">
+<div id="outline-container-org7485c16" class="outline-4">
+<h4 id="org7485c16">submap</h4>
+<div class="outline-text-4" id="text-org7485c16">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#submap</span> {
     <span style="color: #4169e1;">color</span>: <span style="color: #00008b;">@yellow</span>;
@@ -1335,9 +1357,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgaea771a" class="outline-4">
-<h4 id="orgaea771a">tray</h4>
-<div class="outline-text-4" id="text-orgaea771a">
+<div id="outline-container-org813c4c4" class="outline-4">
+<h4 id="org813c4c4">tray</h4>
+<div class="outline-text-4" id="text-org813c4c4">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #0000ff;">#tray</span> {
       <span style="color: #4169e1;">margin-top</span>: 6px;
@@ -1369,7 +1391,7 @@
 <div id="postamble" class="status">
 <p class="date">Date: 2025-09-17 Wed 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-09-17 Wed 09:48</p>
+<p class="date">Created: 2025-09-17 Wed 10:24</p>
 </div>
 </body>
 </html>
